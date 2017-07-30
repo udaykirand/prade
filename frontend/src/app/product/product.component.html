@@ -1,0 +1,97 @@
+<div class="content" fxLayout="row" fxLayoutAlign="center">
+
+    <md-card elevation="5" fxFlex>
+
+      <md-card-subtitle>
+        <h2>PraDé Admin Module</h2>
+      </md-card-subtitle>
+
+      <md-card-title>
+        <h2>{{title}}</h2>
+      </md-card-title>
+
+      <md-card-content>
+
+        <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #productForm="ngForm">
+        <div layout="row">
+        <div flex>
+            <md-input-container>
+              <input mdInput formControlName="productname" required placeholder="Product Name">
+            </md-input-container>
+            <md-input-container>
+              <input mdInput formControlName="description" required placeholder="Description">
+            </md-input-container>
+            <md-input-container>
+              <input mdInput formControlName="category" required placeholder="Category">
+            </md-input-container>
+            <md-input-container>
+              <input mdInput formControlName="image" required placeholder="Image">
+            </md-input-container>
+            <div flex>
+              <md-select formControlName="type" placeholder="Type">
+                  <md-option value="bangle">Bangle</md-option>
+                  <md-option value="necklace">Necklace</md-option>
+                  <md-option value="earring">Earring</md-option>
+                  <md-option value="ring">Ring</md-option>
+              </md-select>
+            </div>
+            <md-input-container>
+              <input type="number" mdInput formControlName="size" placeholder="Size">
+            </md-input-container>
+            <md-input-container>
+              <input type="number" mdInput formControlName="height" placeholder="Height">
+            </md-input-container>
+          </div>
+          <div flex>
+            <md-input-container>
+              <input mdInput formControlName="metalType" placeholder="Metal Type">
+            </md-input-container>
+            <div flex style="text-align: left;margin: 30px 0 30px 0;">
+            <label>Gem</label>
+            <md-radio-group formControlName="gem">
+              <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+              <md-radio-button value="false"> No </md-radio-button>
+            </md-radio-group>
+            </div>
+            <md-input-container>
+              <input type="number" mdInput formControlName="weight" placeholder="Weight">
+            </md-input-container>
+            <md-input-container>
+              <input type="number" mdInput formControlName="sellingPrice" placeholder="MRP">
+            </md-input-container>
+            <md-input-container>
+              <input type="number" mdInput formControlName="actualPrice" placeholder="Actual Price">
+            </md-input-container>
+            <md-input-container>
+              <input type="number" mdInput formControlName="quantity" required placeholder="Quantity">
+            </md-input-container>
+            <div flex style="text-align: left;margin: 30px 0 30px 0;">
+            <label>Sold Out</label>
+            <md-radio-group formControlName="soldOut">
+              <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+              <md-radio-button value="false"> No </md-radio-button>
+            </md-radio-group>
+            </div>
+            <div flex style="text-align: left;margin: 30px 0 30px 0;">
+            <label>To restock</label>
+            <md-radio-group formControlName="toRestock">
+              <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+              <md-radio-button value="false"> No </md-radio-button>
+            </md-radio-group>
+            </div>
+            <button type="submit" [disabled]="!productForm.form.valid" md-raised-button color="primary">Create</button>
+          </div>
+          </div>
+        </form>
+
+        <md-spinner *ngIf="submitted && !(errorDiagnostic || successMessage)" mode="indeterminate"></md-spinner>
+
+        <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
+        <div *ngIf="successMessage">
+        <p class="success">{{successMessage}}</p><a href="/">Continue</a></div>
+        
+      </md-card-content>
+
+    </md-card>
+
+</div>

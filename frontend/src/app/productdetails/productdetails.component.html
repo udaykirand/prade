@@ -1,0 +1,29 @@
+<div class="content" fxLayout="row" fxLayoutAlign="center">
+
+    <md-card elevation="5" fxFlex>
+
+      <md-card-subtitle>
+        <h2>PraDé Search Products</h2>
+      </md-card-subtitle>
+
+      <md-card-title>
+        <h2>{{title}}</h2>
+      </md-card-title>
+
+      <md-card-content>
+
+        
+
+        <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
+
+        <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
+
+      </md-card-content>
+
+    </md-card>
+
+    <md-card *ngFor="let category of categories" (click)="navigate(thing)">
+            Simple card
+        </md-card>
+
+</div>

@@ -1,0 +1,22 @@
+
+<md-toolbar color="primary" class="app-navbar">
+  <button md-button md-ripple *ngIf="hasSignedIn()" routerLink="/">
+    <img alt="PraDè" class="app-angular-logo" src="assets/image/Capture.PNG">
+</button>
+<button md-button md-ripple *ngIf="!hasSignedIn()" routerLink="/">
+    <img alt="PraDè" class="app-angular-logo" src="assets/image/Capture.PNG">
+</button>
+
+  <div class="right">
+    <button *ngIf="!hasSignedIn()" routerLink="/login" md-button md-ripple>
+      <span>Login</span>
+    </button>
+    <button class="greeting-button" *ngIf="hasSignedIn()" md-button md-ripple>
+      <span>Hello, {{userName()}}</span>
+    </button>
+    <button *ngIf="hasSignedIn()" (click)="logout()" md-button md-ripple>
+      <span>Logout</span>
+    </button>
+  </div>
+</md-toolbar>
+

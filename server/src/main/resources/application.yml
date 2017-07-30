@@ -1,0 +1,10 @@
+app:
+  name: prade
+
+jwt:
+  header: Authorization
+  expires_in: 600 # 10 minutes
+  secret: unique
+  cookie: AUTH-TOKEN
+
+

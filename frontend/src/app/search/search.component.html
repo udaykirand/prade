@@ -1,0 +1,30 @@
+<div class="content" fxLayout="row" fxLayoutAlign="center">
+
+    <md-card elevation="5" fxFlex>
+
+      <md-card-subtitle>
+        <h2>PraDè Admin Search</h2>
+      </md-card-subtitle>
+
+      <md-card-title>
+        <h2>{{title}}</h2>
+      </md-card-title>
+
+      <md-card-content>
+
+        <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #searchForm="ngForm">
+          <md-input-container>
+            <input mdInput formControlName="searchtext" required placeholder="Search text">
+          </md-input-container>
+          <button type="submit" [disabled]="!searchForm.form.valid" md-raised-button color="primary">Search</button>
+        </form>
+
+        <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
+
+        <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
+
+      </md-card-content>
+
+    </md-card>
+
+</div>

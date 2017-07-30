@@ -1,0 +1,25 @@
+<div class="content" fxLayout="row" fxLayoutAlign="center none">
+  <app-api-card
+    fxFlex
+    title='Create Product'
+    subTitle="Admin"
+    imgUrl="assets/image/foo.png"
+    content='Create Product'
+    apiText="Create Product"
+    [responseObj]="fooResponse"
+    (apiClick)="createProduct()"
+  >
+  </app-api-card>
+
+  <app-api-card
+     fxFlex
+     title='Export Product'
+     subTitle="USER"
+     imgUrl="assets/image/user.png"
+     content='Export Product'
+     apiText="Export Product"
+     [responseObj]="whoamIResponse"
+     (apiClick)="exportProduct()"
+  >
+  </app-api-card>
+</div>

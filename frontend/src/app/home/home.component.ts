@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
   }
 
   exportProduct() {
-    location.href = "http://localhost:8080/api/reminder/download.xls"
+    location.href = "/api/reminder/download.xls"
   }
 
   updateProduct() {

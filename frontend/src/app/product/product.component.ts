@@ -35,7 +35,7 @@ export class ProductComponent implements OnInit {
    */
   errorDiagnostic: string;
   successMessage: string;
-
+  product:{};
   constructor(
     private userService: UserService,
     private authService: AuthService,
@@ -47,6 +47,10 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.product = {
+      name: "test",
+      type:["Bangle", "Earrings", "FromType"]
+    }
     if(!this.userService.currentUser) {
       this.router.navigate(['/login']);
     }

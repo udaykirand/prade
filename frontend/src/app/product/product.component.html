@@ -1,22 +1,17 @@
-<div class="content" fxLayout="row" fxLayoutAlign="center">
 
-    <md-card elevation="5" fxFlex>
-
-      <md-card-subtitle>
-        <h2>PraDé Admin Module</h2>
-      </md-card-subtitle>
+<form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #productForm="ngForm">
+  <div class="content" fxLayout="row" fxLayoutAlign="center none">
+    <md-card style="margin: 0px 50px 0px 0px;min-width:350px;">
 
       <md-card-title>
-        <h2>{{title}}</h2>
+        <h2>Basic Properties</h2>
       </md-card-title>
 
       <md-card-content>
 
-        <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #productForm="ngForm">
-        <div layout="row">
-        <div flex>
-            <md-input-container>
-              <input mdInput formControlName="productname" required placeholder="Product Name">
+        
+        <md-input-container>
+              <input mdInput formControlName="productname" required placeholder="Product Name" [(ngModel)] = "product.name">
             </md-input-container>
             <md-input-container>
               <input mdInput formControlName="description" required placeholder="Description">
@@ -29,10 +24,7 @@
             </md-input-container>
             <div flex>
               <md-select formControlName="type" placeholder="Type">
-                  <md-option value="bangle">Bangle</md-option>
-                  <md-option value="necklace">Necklace</md-option>
-                  <md-option value="earring">Earring</md-option>
-                  <md-option value="ring">Ring</md-option>
+                  <md-option *ngFor="let type of product.type" [value]="type">{{type}}</md-option>
               </md-select>
             </div>
             <md-input-container>
@@ -41,8 +33,16 @@
             <md-input-container>
               <input type="number" mdInput formControlName="height" placeholder="Height">
             </md-input-container>
-          </div>
-          <div flex>
+          
+      </md-card-content>
+    </md-card>
+    <br><br><br><br>
+    <md-card style="min-width:350px;">
+      <md-card-title>
+        <h2>Additional Properties</h2>
+      </md-card-title>
+
+      <md-card-content>
             <md-input-container>
               <input mdInput formControlName="metalType" placeholder="Metal Type">
             </md-input-container>
@@ -56,6 +56,7 @@
             <md-input-container>
               <input type="number" mdInput formControlName="weight" placeholder="Weight">
             </md-input-container>
+
             <md-input-container>
               <input type="number" mdInput formControlName="sellingPrice" placeholder="MRP">
             </md-input-container>
@@ -79,19 +80,26 @@
               <md-radio-button value="false"> No </md-radio-button>
             </md-radio-group>
             </div>
-            <button type="submit" [disabled]="!productForm.form.valid" md-raised-button color="primary">Create</button>
-          </div>
-          </div>
-        </form>
+            
+        
+      </md-card-content>
+
+    </md-card>
+  </div>
+  <md-card style="margin-top:15px;margin-left:37%" fxLayoutAlign="center none">
+    <md-card-content>
+  <button type="submit" [disabled]="!productForm.form.valid" md-raised-button color="primary">Create</button>
+          
+          
+        
 
         <md-spinner *ngIf="submitted && !(errorDiagnostic || successMessage)" mode="indeterminate"></md-spinner>
 
         <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
         <div *ngIf="successMessage">
         <p class="success">{{successMessage}}</p><a href="/">Continue</a></div>
-        
-      </md-card-content>
+    </md-card-content>
+  </md-card>
+</form>
 
-    </md-card>
 
-</div>

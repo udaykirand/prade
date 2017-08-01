@@ -63,8 +63,10 @@ export class SearchComponent implements OnInit {
     // show me the animation
     .delay(1000)
     .subscribe(data => {
-      console.log(data.data[0].id);
-      this.router.navigate(['/:'+data.data[0].id]);
+      if(data.data.length != 0)
+        this.router.navigate(['productdetails/'+data.data[0].id]);
+      else
+        this.errorDiagnostic = 'No search results found';
     },
     error => {
       console.log(error.status);

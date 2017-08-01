@@ -35,7 +35,8 @@ productId: Observable<string>;
     // show me the animation
     .delay(1000)
     .subscribe(data => {
-      console.log(data.data[0].id);
+
+      console.log(data.data);
     },
     error => {
       console.log(error.status);

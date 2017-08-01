@@ -2,7 +2,7 @@
   <md-card-header>
     <md-card-title><b>{{title}}</b></md-card-title>
   </md-card-header>
-  
+  <img md-card-image [src]="imgUrl" style="height: 230px;">
   <md-card-actions layout="row" layout-align="end center">
     <button md-raised-button color="primary" (click)="onButtonClick()">{{apiText}}</button>
   </md-card-actions>

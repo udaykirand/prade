@@ -27,7 +27,6 @@ public class ProductController {
 	ProductService productService;
 
 	@RequestMapping(method = RequestMethod.GET, value = "")
-	@PreAuthorize("hasRole('USER')")
 	public Result getAllProducts() {
 		return new Result(Constants.SUCCESS, null, productService.getAllProducts());
 	}

@@ -3,7 +3,7 @@
     fxFlex
     title='Create Product'
     subTitle="Admin"
-    imgUrl="assets/image/foo.png"
+    imgUrl="assets/image/1973180.jpg"
     content='Create Product'
     apiText="Create Product"
     [responseObj]="fooResponse"
@@ -13,13 +13,24 @@
 
   <app-api-card
      fxFlex
-     title='Export Product'
+     title='Export Products'
      subTitle="USER"
-     imgUrl="assets/image/user.png"
+     imgUrl="assets/image/xls-round-big2.png"
      content='Export Product'
      apiText="Export Product"
      [responseObj]="whoamIResponse"
      (apiClick)="exportProduct()"
+  >
+  </app-api-card>
+<app-api-card
+     fxFlex
+     title='Update Product'
+     subTitle="USER"
+     imgUrl="assets/image/user.png"
+     content='Update Product'
+     apiText="Update Product"
+     [responseObj]="whoamIResponse"
+     (apiClick)="updateProduct()"
   >
   </app-api-card>
 </div>

@@ -3,7 +3,7 @@
     <md-card elevation="5" fxFlex>
 
       <md-card-subtitle>
-        <h2>PraDè Admin Search</h2>
+        <h2>PraDé Admin Search</h2>
       </md-card-subtitle>
 
       <md-card-title>
@@ -19,7 +19,7 @@
           <button type="submit" [disabled]="!searchForm.form.valid" md-raised-button color="primary">Search</button>
         </form>
 
-        <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
+        <md-spinner *ngIf="submitted && !errorDiagnostic" mode="indeterminate"></md-spinner>
 
         <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
 

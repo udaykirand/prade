@@ -83,7 +83,7 @@ export class HomeComponent implements OnInit {
   }
 
   updateProduct() {
-    
+    this.router.navigate(['/product']);
   }
 
 }

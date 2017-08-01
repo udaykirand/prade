@@ -85,7 +85,7 @@ export class ProductComponent implements OnInit {
     this.productService.createProduct(this.form.value)
     .subscribe(data => {
       console.log(data.data);
-      this.router.navigate('/'');
+      this.router.navigate(['/']);
     },
     error => {
       console.log(error.status);

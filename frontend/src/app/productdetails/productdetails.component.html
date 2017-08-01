@@ -13,19 +13,19 @@
 
         
         <md-input-container>
-              <input mdInput formControlName="productname" required placeholder="Product Name"[(ngModel)] = "product.name">
+              <input mdInput formControlName="productname" required placeholder="Product Name" [(ngModel)] = "product.name">
             </md-input-container>
             <md-input-container>
-              <input mdInput formControlName="description" required placeholder="Description">
+              <input mdInput formControlName="description" required placeholder="Description" [(ngModel)] = "product.description">
             </md-input-container>
             <md-input-container>
-              <input mdInput formControlName="category" required placeholder="Category">
+              <input mdInput formControlName="category" required placeholder="Category" [(ngModel)] = "product.category">
             </md-input-container>
             <md-input-container>
-              <input mdInput formControlName="image" required placeholder="Image">
+              <input mdInput formControlName="image" required placeholder="Image" [(ngModel)] = "product.image">
             </md-input-container>
             <div flex>
-              <md-select formControlName="type" placeholder="Type">
+              <md-select formControlName="type" placeholder="Type" [(ngModel)] = "product.type">
                   <md-option value="bangle">Bangle</md-option>
                   <md-option value="necklace">Necklace</md-option>
                   <md-option value="earring">Earring</md-option>

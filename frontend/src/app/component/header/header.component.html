@@ -20,3 +20,27 @@
   </div>
 </md-toolbar>
 
+
+<md-toolbar color="primary" class="app-navbar">
+  
+
+  <div class="left" style="margin-left:25%;">
+    <button  routerLink="/" md-button md-ripple>
+      <span>HOME</span>
+    </button>
+    <button  routerLink="/product" md-button md-ripple>
+      <span>CREATE PRODUCT</span>
+    </button>
+    <button  routerLink="/search" md-button md-ripple>
+      <span>UPDATE PRODUCT</span>
+    </button>
+    <button  routerLink="/search" md-button md-ripple>
+      <span>SEARCH PRODUCTS</span>
+    </button>
+    <button onClick="location.href='/api/reminder/download.xls'" md-button md-ripple>
+      <span>EXPORT PRODUCTS</span>
+    </button>
+    
+  </div>
+</md-toolbar>
+

@@ -1,7 +1,7 @@
 
 <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #productForm="ngForm">
   <div class="content" fxLayout="row" fxLayoutAlign="center none">
-    <md-card style="margin: 0px 50px 0px 0px;min-width:350px;">
+    <md-card style="min-width:350px;">
 
       <md-card-title>
         <h2>Basic Properties</h2>
@@ -36,7 +36,7 @@
           
       </md-card-content>
     </md-card>
-    <br><br><br><br>
+    
     <md-card style="min-width:350px;">
       <md-card-title>
         <h2>Additional Properties</h2>
@@ -86,7 +86,7 @@
 
     </md-card>
   </div>
-  <md-card style="margin-top:15px;margin-left:37%" fxLayoutAlign="center none">
+  <md-card style="min-width:797px;margin-left:291px" fxLayoutAlign="center none">
     <md-card-content>
   <button type="submit" [disabled]="!productForm.form.valid" md-raised-button color="primary">Create</button>
           

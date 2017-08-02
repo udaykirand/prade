@@ -12,9 +12,9 @@
 
       <md-card-content>
 
-        <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #searchForm="ngForm">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" #searchForm="ngForm">
           <md-input-container>
-            <input mdInput formControlName="searchtext" required placeholder="Search text">
+            <input mdInput formControlName="searchtext" required placeholder="Product Id">
           </md-input-container>
           <button type="submit" [disabled]="!searchForm.form.valid" md-raised-button color="primary">Search</button>
         </form>

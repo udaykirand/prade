@@ -26,4 +26,18 @@ export class ProductService {
     return this.apiService.get(this.config.search_url, searchtext.searchtext);
   }
 
+  getProduct(id) {
+    return this.apiService.get(this.config.product_url+'/'+id);
+  }
+
+  getProductTypes() {
+    return this.apiService.get(this.config.product_url+'/types');
+  }
+
+  updateProduct(id, product) {
+    const body = `{"name":"${product.productname}","description":"${product.description}","type":"${product.type}","size":"${product.size}","height":"${product.height}","weight":"${product.weight}","metalType":"${product.metalType}","gem":"${product.gem}","sellingPrice":"${product.sellingPrice}","actualPrice":"${product.actualPrice}","quantity":"${product.quantity}","soldOut":"${product.soldOut}","toRestock":"${product.toRestock}"}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.apiService.post(this.config.product_url+'/'+id, body, headers);    
+  }
 }

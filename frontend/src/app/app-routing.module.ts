@@ -25,6 +25,11 @@ export const routes: Routes = [
     component: ProductComponent,
     pathMatch: 'full'
   },
+    {
+    path: 'product/:id',
+    component: ProductComponent,
+    pathMatch: 'full'
+  },
   {
     path: 'search',
     component: SearchComponent,

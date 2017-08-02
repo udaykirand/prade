@@ -59,19 +59,19 @@ export class SearchComponent implements OnInit {
     this.submitted = true;
     this.errorDiagnostic = null;
 
-    this.productService.searchProduct(this.form.value)
+    this.productService.getProduct(this.form.value.searchtext)
     // show me the animation
     .delay(1000)
     .subscribe(data => {
-      if(data.data.length != 0)
-        this.router.navigate(['productdetails/'+data.data[0].id]);
+      if(data.data != null)
+        this.router.navigate(['product/'+data.data.id]);
       else
         this.errorDiagnostic = 'No search results found';
     },
     error => {
       console.log(error.status);
       this.submitted = false;
-      this.errorDiagnostic = 'Error occured while creating product. Please try again later.';
+      this.errorDiagnostic = 'Error occured while loading product. Please try again later.';
     });
 
   }

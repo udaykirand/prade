@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 
+export interface myData {
+   message:string;
+}
+
+
 @Injectable()
 export class ConfigService {
 
@@ -25,6 +30,10 @@ export class ConfigService {
   private _product_url = this._api_url + '/products';
 
   private _search_url = this._api_url + '/products/search';
+
+  private message:string;
+
+  sharingData: myData={message:""};
 
   get api_url(): string {
       return this._api_url;
@@ -62,5 +71,13 @@ export class ConfigService {
       return this._search_url;
   }
 
+  saveData(str){
+    console.log('save data function called' + str + this.sharingData.message);
+    this.sharingData.message=str; 
+  }
+  getData():string {
+    console.log('get data function called');
+    return this.sharingData.message;
+  }
 
 }

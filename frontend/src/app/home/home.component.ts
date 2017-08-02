@@ -16,12 +16,15 @@ export class HomeComponent implements OnInit {
   fooResponse = {};
   whoamIResponse = {};
   allUserResponse = {};
+  message:string;
   constructor(
     private config: ConfigService,
     private fooService: FooService,
     private router: Router,
     private userService: UserService
-  ) { }
+  ) { 
+    this.message = config.getData();
+  }
 
   ngOnInit() {
   }
@@ -83,7 +86,7 @@ export class HomeComponent implements OnInit {
   }
 
   updateProduct() {
-    this.router.navigate(['/product']);
+    this.router.navigate(['/search/']);
   }
 
 }

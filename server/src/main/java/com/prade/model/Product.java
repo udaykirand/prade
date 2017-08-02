@@ -26,6 +26,9 @@ public class Product extends DeletableModel {
 
 	@Column(name = "type")
 	private String type;
+	
+	@Column(name = "image")
+	private String image;
 
 	@Column(name = "status")
 	private String status;
@@ -187,5 +190,13 @@ public class Product extends DeletableModel {
 
 	public void setActualPrice(Double actualPrice) {
 		this.actualPrice = actualPrice;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

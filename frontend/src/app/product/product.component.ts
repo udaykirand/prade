@@ -2,11 +2,14 @@ import { Inject } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {ActivatedRoute} from "@angular/router";
+
 
 import {
   UserService,
   AuthService,
-  ProductService
+  ProductService,
+  ConfigService
 } from '../service';
 
 import { Observable } from 'rxjs/Observable';
@@ -34,22 +37,38 @@ export class ProductComponent implements OnInit {
    * form request error
    */
   errorDiagnostic: string;
+  productNotFound: string;
   successMessage: string;
-  product:{};
+  product:any;
+  productTypes:any[] = [];
+  btnText = 'Create';
+  isUpdate = false;
+  prodId:any;
   constructor(
     private userService: UserService,
     private authService: AuthService,
     private productService: ProductService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private config:ConfigService
   ) {
-
+    this.route.params.subscribe( params => {
+      console.log(params);
+      if (params['id']) { 
+        this.btnText = 'Update';
+        this.isUpdate = true;
+        this.prodId = params['id'];
+        this.loadProduct(params['id'])
+      }
+    });
+    this.loadProductTypes();
   }
 
   ngOnInit() {
     this.product = {
       name: "test",
-      type:["Bangle", "Earrings", "FromType"]
+      type:this.productTypes
     }
     if(!this.userService.currentUser) {
       this.router.navigate(['/login']);
@@ -57,7 +76,7 @@ export class ProductComponent implements OnInit {
     this.form = this.formBuilder.group({
       productname: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])],
       description: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],
-      type: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],
+      type: [''],
       image: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],
       size: [''],
       category: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],
@@ -81,10 +100,11 @@ export class ProductComponent implements OnInit {
     this.submitted = true;
     this.errorDiagnostic = null;
     this.successMessage = null;
-
-    this.productService.createProduct(this.form.value)
+    if(this.isUpdate) {
+    this.productService.updateProduct(this.prodId, this.form.value)
     .subscribe(data => {
       console.log(data.data);
+      this.config.saveData("Product updated successfully");
       this.router.navigate(['/']);
     },
     error => {
@@ -96,8 +116,80 @@ export class ProductComponent implements OnInit {
         this.errorDiagnostic = 'Error occured while creating product. Please try again later.';
       }
     });
+    } 
+  else {
+    this.productService.createProduct(this.form.value)
+    .subscribe(data => {
+      console.log(data.data);
+      this.config.saveData("Product created successfully");
+      this.router.navigate(['/']);
+    },
+    error => {
+      console.log(error.status);
+      this.submitted = false;
+      if(error.status == 403) {
+        this.errorDiagnostic = 'Please login as admin to update product';
+      } else {
+        this.errorDiagnostic = 'Error occured while updating product. Please try again later.';
+      }
+    });
+  }
+    
 
   }
 
+  loadProduct(id) {
+    this.productService.getProduct(id)
+    .subscribe(data => {
+      if(data.data != null) {
+      console.log(data.data);
+      console.log(data.data.id);
+      this.product = {
+      name: data.data.name,
+      description: data.data.description,
+      status: data.data.status,
+      metalType:data.data.metalType,
+      gem: data.data.gem,
+      height: data.data.height,
+      weight: data.data.weight,
+      size: data.data.size,
+      quantity: data.data.quantity,
+      image: data.data.image,
+      category: data.data.category,
+      soldOut: data.data.soldOut,
+      toRestock: data.data.reStock,
+      actualPrice: data.data.actualPrice,
+      sellingPrice: data.data.sellingPrice  
+    };
+      } else {
+      this.productNotFound = 'Invalid product id';
+      }
+    },
+    error => {
+      console.log(error.status);
+      this.submitted = false;
+      if(error.status == 403) {
+        this.errorDiagnostic = 'Please login as admin to create or update products';
+      } else {
+        this.errorDiagnostic = 'Error occured while loading product. Please try again later.';
+      }
+    });
+  }
+  
+  loadProductTypes() {
+ this.productService.getProductTypes().subscribe(data => {
+   console.log(data.data);
+   if(data.data != null) {
+     this.product.type = data.data
+   }
+ },
+error => {
+  console.log(error.status);
+});  
+}
+
+updateProduct() {
+
+}
 
 }

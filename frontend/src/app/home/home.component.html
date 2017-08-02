@@ -1,3 +1,10 @@
+<div class="content" fxLayout="column" fxLayoutAlign="center none">
+  <p class="error" *ngIf="message" style="margin-left: 40%;
+    font-weight: bold;
+    font-family: Roboto,Helvetica Neue,sans-serif;
+    box-shadow: 0 0 black;
+    color: #1fd015;">{{message}}</p>
+</div>
 <div class="content" fxLayout="row" fxLayoutAlign="center none">
   <app-api-card
     fxFlex
@@ -8,18 +15,6 @@
     apiText="Create Product"
     [responseObj]="fooResponse"
     (apiClick)="createProduct()"
-  >
-  </app-api-card>
-
-  <app-api-card
-     fxFlex
-     title='Export Products'
-     subTitle="USER"
-     imgUrl="assets/image/xls-round-big2.png"
-     content='Export Product'
-     apiText="Export Product"
-     [responseObj]="whoamIResponse"
-     (apiClick)="exportProduct()"
   >
   </app-api-card>
 <app-api-card
@@ -33,4 +28,17 @@
      (apiClick)="updateProduct()"
   >
   </app-api-card>
+  <app-api-card
+     fxFlex
+     title='Export Products'
+     subTitle="USER"
+     imgUrl="assets/image/xls-round-big2.png"
+     content='Export Product'
+     apiText="Export Product"
+     [responseObj]="whoamIResponse"
+     (apiClick)="exportProduct()"
+  >
+  </app-api-card>
+
+  
 </div>

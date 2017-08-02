@@ -9,18 +9,18 @@
 
       <md-card-content>
 
-        
+        <p class="error" *ngIf="productNotFound">{{productNotFound}}</p>
         <md-input-container>
               <input mdInput formControlName="productname" required placeholder="Product Name" [(ngModel)] = "product.name">
             </md-input-container>
             <md-input-container>
-              <input mdInput formControlName="description" required placeholder="Description">
+              <input mdInput formControlName="description" required placeholder="Description" [(ngModel)] = "product.description">
             </md-input-container>
             <md-input-container>
-              <input mdInput formControlName="category" required placeholder="Category">
+              <input mdInput formControlName="category" required placeholder="Category" [(ngModel)] = "product.category">
             </md-input-container>
             <md-input-container>
-              <input mdInput formControlName="image" required placeholder="Image">
+              <input mdInput formControlName="image" required placeholder="Image" [(ngModel)] = "product.image" [(ngModel)] = "product.image">
             </md-input-container>
             <div flex>
               <md-select formControlName="type" placeholder="Type">
@@ -28,10 +28,10 @@
               </md-select>
             </div>
             <md-input-container>
-              <input type="number" mdInput formControlName="size" placeholder="Size">
+              <input type="number" mdInput formControlName="size" placeholder="Size" [(ngModel)] = "product.size">
             </md-input-container>
             <md-input-container>
-              <input type="number" mdInput formControlName="height" placeholder="Height">
+              <input type="number" mdInput formControlName="height" placeholder="Height" [(ngModel)] = "product.height">
             </md-input-container>
           
       </md-card-content>
@@ -44,39 +44,39 @@
 
       <md-card-content>
             <md-input-container>
-              <input mdInput formControlName="metalType" placeholder="Metal Type">
+              <input mdInput formControlName="metalType" placeholder="Metal Type" [(ngModel)] = "product.metalType">
             </md-input-container>
             <div flex style="text-align: left;margin: 30px 0 30px 0;">
-            <label>Gem</label>
-            <md-radio-group formControlName="gem">
+            <label>Gem<sup>*</sup></label>
+            <md-radio-group formControlName="gem" required>
               <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
               <md-radio-button value="false"> No </md-radio-button>
             </md-radio-group>
             </div>
             <md-input-container>
-              <input type="number" mdInput formControlName="weight" placeholder="Weight">
+              <input type="number" mdInput formControlName="weight" placeholder="Weight" [(ngModel)] = "product.weight">
             </md-input-container>
 
             <md-input-container>
-              <input type="number" mdInput formControlName="sellingPrice" placeholder="MRP">
+              <input type="number" mdInput formControlName="sellingPrice" placeholder="MRP" [(ngModel)] = "product.sellingPrice">
             </md-input-container>
             <md-input-container>
-              <input type="number" mdInput formControlName="actualPrice" placeholder="Actual Price">
+              <input type="number" mdInput formControlName="actualPrice" placeholder="Actual Price" [(ngModel)] = "product.actualPrice">
             </md-input-container>
             <md-input-container>
-              <input type="number" mdInput formControlName="quantity" required placeholder="Quantity">
+              <input type="number" mdInput formControlName="quantity" required placeholder="Quantity" [(ngModel)] = "product.quantity">
             </md-input-container>
             <div flex style="text-align: left;margin: 30px 0 30px 0;">
-            <label>Sold Out</label>
-            <md-radio-group formControlName="soldOut">
-              <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+            <label>Sold Out<sup>*</sup></label>
+            <md-radio-group formControlName="soldOut" required [(ngModel)] = "product.soldOut">
+              <md-radio-button value="true">Yes</md-radio-button>
               <md-radio-button value="false"> No </md-radio-button>
             </md-radio-group>
             </div>
             <div flex style="text-align: left;margin: 30px 0 30px 0;">
-            <label>To restock</label>
-            <md-radio-group formControlName="toRestock">
-              <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+            <label>To restock<sup>*</sup></label>
+            <md-radio-group formControlName="toRestock" required [(ngModel)]="product.toRestock">
+              <md-radio-button value="true">Yes</md-radio-button>
               <md-radio-button value="false"> No </md-radio-button>
             </md-radio-group>
             </div>
@@ -88,7 +88,7 @@
   </div>
   <md-card style="min-width:797px;margin-left:291px" fxLayoutAlign="center none">
     <md-card-content>
-  <button type="submit" [disabled]="!productForm.form.valid" md-raised-button color="primary">Create</button>
+  <button type="submit" [disabled]="!productForm.form.valid" md-raised-button color="primary">{{btnText}}</button>
           
           
         

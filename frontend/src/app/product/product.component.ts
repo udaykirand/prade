@@ -121,7 +121,7 @@ export class ProductComponent implements OnInit {
     this.productService.createProduct(this.form.value)
     .subscribe(data => {
       console.log(data.data);
-      this.config.saveData("Product created successfully");
+      this.config.saveData("Product created successfully with id : "+data.data);
       this.router.navigate(['/']);
     },
     error => {

@@ -21,9 +21,20 @@
      fxFlex
      title='Update Product'
      subTitle="USER"
-     imgUrl="assets/image/user.png"
+     imgUrl="assets/image/Refresh_font_awesome.svg.png"
      content='Update Product'
      apiText="Update Product"
+     [responseObj]="whoamIResponse"
+     (apiClick)="updateProduct()"
+  >
+  </app-api-card>
+<app-api-card
+     fxFlex
+     title='Search Products'
+     subTitle="USER"
+     imgUrl="assets/image/search.svg"
+     content='Search Products'
+     apiText="Search Products"
      [responseObj]="whoamIResponse"
      (apiClick)="updateProduct()"
   >
@@ -32,7 +43,7 @@
      fxFlex
      title='Export Products'
      subTitle="USER"
-     imgUrl="assets/image/xls-round-big2.png"
+     imgUrl="assets/image/picto-download-warmgrey.svg"
      content='Export Product'
      apiText="Export Product"
      [responseObj]="whoamIResponse"

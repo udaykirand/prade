@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 import {
   UserService,
   AuthService,
-  ProductService
+  ProductService,
+  ConfigService
 } from '../service';
 
 import { Observable } from 'rxjs/Observable';
@@ -40,7 +41,8 @@ export class SearchComponent implements OnInit {
     private authService: AuthService,
     private productService: ProductService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private config: ConfigService
   ) {
 
   }

@@ -38,6 +38,7 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/download", method = RequestMethod.GET)
+	@PreAuthorize("hasRole('ADMIN')")
 	public ModelAndView exportProducts() {
 		List<Product> products = productService.getAllProducts();
 		System.out.println("***************"+products.size());

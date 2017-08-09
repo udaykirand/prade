@@ -67,8 +67,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.product = {
-      name: "test",
-      type:this.productTypes
+      type:this.productTypes.sort()
     }
     if(!this.userService.currentUser) {
       this.router.navigate(['/login']);
@@ -180,7 +179,7 @@ export class ProductComponent implements OnInit {
  this.productService.getProductTypes().subscribe(data => {
    console.log(data.data);
    if(data.data != null) {
-     this.product.type = data.data
+     this.product.type = data.data.sort()
    }
  },
 error => {

@@ -87,7 +87,8 @@
 
     </md-card>
   </div>
-  <md-card style="min-width:896px;margin-left:234px;" fxLayoutAlign="center none">
+  <div class="content" fxLayout="row" fxLayoutAlign="center none">
+  <md-card style="min-width:896px;" fxLayoutAlign="center none">
     <md-card-content>
   <button type="submit" [disabled]="!productForm.form.valid" md-raised-button color="primary">{{btnText}}</button>
           
@@ -101,6 +102,7 @@
         <p class="success">{{successMessage}}</p><a href="/">Continue</a></div>
     </md-card-content>
   </md-card>
+  </div>
 </form>
 
 

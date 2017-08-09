@@ -62,12 +62,12 @@ export class ProductComponent implements OnInit {
         this.loadProduct(params['id'])
       }
     });
-    this.loadProductTypes();
+    this.loadDropDowns();
   }
 
   ngOnInit() {
     this.product = {
-      type:this.productTypes.sort()
+      metalType:["Silver", "Alloy", "Afghan alloy", "Antique silver"]
     }
     if(!this.userService.currentUser) {
       this.router.navigate(['/login']);
@@ -175,16 +175,18 @@ export class ProductComponent implements OnInit {
     });
   }
   
-  loadProductTypes() {
+  loadDropDowns() {
  this.productService.getProductTypes().subscribe(data => {
    console.log(data.data);
    if(data.data != null) {
-     this.product.type = data.data.sort()
+     this.product.type = data.data.sort();
+     this.product.metalType = ["Silver", "Alloy", "Afghan alloy", "Antique silver"];
    }
  },
 error => {
   console.log(error.status);
 });  
+
 }
 
 updateProduct() {

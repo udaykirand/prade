@@ -80,4 +80,9 @@ export class ConfigService {
     return this.sharingData.message;
   }
 
+  resetData() {
+      console.log("reset data "+this.sharingData.message);
+      this.sharingData.message = "";
+  }
+
 }

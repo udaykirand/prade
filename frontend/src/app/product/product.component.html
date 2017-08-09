@@ -33,9 +33,11 @@
             <md-input-container>
               <input type="number" mdInput formControlName="height" placeholder="Height" [(ngModel)] = "product.height">
             </md-input-container>
-          <md-input-container>
-              <input mdInput formControlName="metalType" placeholder="Metal Type" [(ngModel)] = "product.metalType">
-            </md-input-container>
+          <div flex>
+              <md-select formControlName="metalType" placeholder="Metal Type">
+                  <md-option *ngFor="let metalType of product.metalType" [value]="metalType">{{metalType}}</md-option>
+              </md-select>
+            </div>
       </md-card-content>
     </md-card>
     
@@ -85,7 +87,7 @@
 
     </md-card>
   </div>
-  <md-card style="min-width:896px;margin-left:242px;" fxLayoutAlign="center none">
+  <md-card style="min-width:896px;margin-left:234px;" fxLayoutAlign="center none">
     <md-card-content>
   <button type="submit" [disabled]="!productForm.form.valid" md-raised-button color="primary">{{btnText}}</button>
           

@@ -82,7 +82,11 @@ export class HomeComponent implements OnInit {
   }
 
   exportProduct() {
-    location.href = "/api/reminder/download.xls"
+    if(!!this.userService.currentUser) {
+      location.href='/api/reminder/download.xls';
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   updateProduct() {

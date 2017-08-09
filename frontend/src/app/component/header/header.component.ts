@@ -37,4 +37,12 @@ export class HeaderComponent implements OnInit {
     return user.firstname;
   }
 
+  exportProducts() {
+    if(this.hasSignedIn()) {
+      location.href='/api/reminder/download.xls';
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
 }

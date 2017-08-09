@@ -61,12 +61,13 @@ export class SearchComponent implements OnInit {
     this.submitted = true;
     this.errorDiagnostic = null;
 
-    this.productService.getProduct(this.form.value.searchtext)
+    this.productService.searchProduct(this.form.value.searchtext)
     // show me the animation
     .delay(1000)
     .subscribe(data => {
+      console.log(data.data[0]);
       if(data.data != null)
-        this.router.navigate(['product/'+data.data.id]);
+        this.router.navigate(['product/'+data.data[0].id]);
       else
         this.errorDiagnostic = 'No search results found';
     },

@@ -48,6 +48,9 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.userService.currentUser) {
+      this.router.navigate(['/login']);
+    }
     this.form = this.formBuilder.group({
       searchtext: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])]
     });
@@ -66,7 +69,7 @@ export class SearchComponent implements OnInit {
     .delay(1000)
     .subscribe(data => {
       console.log(data.data[0]);
-      if(data.data != null)
+      if(data.data != null && data.data.length > 0)
         this.router.navigate(['product/'+data.data[0].id]);
       else
         this.errorDiagnostic = 'No search results found';

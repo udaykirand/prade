@@ -1,5 +1,6 @@
 package com.prade.service.impl;
 
+import com.prade.dao.CustomUserDao;
 import com.prade.model.User;
 import com.prade.repository.UserRepository;
 import com.prade.service.UserService;
@@ -18,8 +19,12 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
+    
+	@Autowired
     private UserRepository userRepository;
+	
+	@Autowired
+    private CustomUserDao customUserDao;
 
     @Override
     @PreAuthorize("hasRole('USER')")
@@ -39,4 +44,12 @@ public class UserServiceImpl implements UserService {
         List<User> result = userRepository.findAll();
         return result;
     }
+    
+    // By default all users will only have ROLE_USER. Admin users must be created in backend
+    public Long register(User user) throws AccessDeniedException {
+        User result = userRepository.save(user);
+        customUserDao.insertUserRoleMapping(result.getId(), new Long(1));
+        return result.getId();
+    }
+    
 }

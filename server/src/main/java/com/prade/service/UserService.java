@@ -11,4 +11,5 @@ public interface UserService {
     public User findById(Long id);
     public User findByUsername(String username);
     public List<User> findAll ();
+	public Long register(User user);
 }

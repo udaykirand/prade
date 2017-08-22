@@ -41,7 +41,6 @@ public class AdminController {
 	@PreAuthorize("hasRole('ADMIN')")
 	public ModelAndView exportProducts() {
 		List<Product> products = productService.getAllProducts();
-		System.out.println("***************"+products.size());
 		Map<String, Object> model = new HashMap<>();
 		model.put("products", products);
 		return new ModelAndView(new ExcelView(), model);

@@ -25,7 +25,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	 */
 	@Bean
 	public ViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager) {
-		System.out.println("contentNegotiatingViewResolver");
 		ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
 		resolver.setContentNegotiationManager(manager);
 

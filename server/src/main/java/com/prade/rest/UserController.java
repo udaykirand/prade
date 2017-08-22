@@ -5,6 +5,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,6 +26,8 @@ import com.prade.service.UserService;
 @RestController
 @RequestMapping( value = "/api/user", produces = MediaType.APPLICATION_JSON_VALUE )
 public class UserController {
+	
+	private final static Logger LOG = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
@@ -40,6 +44,7 @@ public class UserController {
     
     @RequestMapping( method = POST, value= "/register")
     public Long register(@RequestBody User user) {
+    	LOG.info("User registration");
     	return this.userService.register(user);
     }
 

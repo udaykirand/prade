@@ -35,4 +35,11 @@ export class UserService {
     return this.apiService.get(this.config.users_url);
   }
 
+  register(user) {
+    const body = `{"username":"${user.username}","password":"${user.password}","confirmPassword":"${user.confirmPassword}"}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.apiService.post(this.config.register_url, body, headers);
+  }
+
 }

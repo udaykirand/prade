@@ -19,7 +19,6 @@ import 'rxjs/add/observable/interval';
 })
 export class LoginComponent implements OnInit {
   title = 'Login';
-  githubLink = 'https://github.com/bfwg/angular-spring-starter';
   form: FormGroup;
 
   /**
@@ -51,10 +50,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])]
     });
 
-  }
-
-  repository() {
-    window.location.href = this.githubLink;
   }
 
   onSubmit() {

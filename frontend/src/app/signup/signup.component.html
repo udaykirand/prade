@@ -1,0 +1,40 @@
+<div class="content" fxLayout="row" fxLayoutAlign="center">
+
+    <md-card elevation="5" fxFlex>
+
+      <md-card-subtitle>
+        <h2>PraDé</h2>
+      </md-card-subtitle>
+
+      <md-card-title>
+        <h2>{{title}}</h2>
+      </md-card-title>
+
+      <md-card-content>
+
+        <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+          <md-input-container>
+            <input mdInput formControlName="username" required placeholder="Email" [(ngModel)] = "user.email">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput formControlName="password" required type="password" placeholder="Password" [(ngModel)] = "user.password">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput formControlName="confirmPassword" required type="password" placeholder="Confirm Password" [(ngModel)] = "user.confirmPassword">
+          </md-input-container>
+          <md-checkbox formControlName="terms" aria-label="Checkbox" required class="md-warn md-align-top-left" flex>
+            <span>I agree to the terms and conditions.</span>
+          </md-checkbox>
+          <button style="margin-top:15px;" type="submit" [disabled]="!signupForm.form.valid" md-raised-button color="primary">Register</button>
+          <button style="margin-top:15px;" type="button" (click)="login()" md-raised-button color="primary">Click here to Login instead</button>
+        </form>
+
+        <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
+
+        <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
+
+      </md-card-content>
+
+    </md-card>
+
+</div>

@@ -176,12 +176,12 @@ export class ProductComponent implements OnInit {
   }
   
   loadDropDowns() {
- this.productService.getProductTypes().subscribe(data => {
-   console.log(data.data);
-   if(data.data != null) {
+    this.productService.getProductTypes().subscribe(data => {
+    console.log(data.data);
+    if(data.data != null) {
      this.product.type = data.data.sort();
      this.product.metalType = ["Silver", "Alloy", "Afghan alloy", "Antique silver"];
-   }
+    }
  },
 error => {
   console.log(error.status);

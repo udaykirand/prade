@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { ProductComponent } from './product';
+import { SignupComponent } from './signup';
 import { ProductDetailsComponent } from './productdetails';
 import { SearchComponent } from './search';
 import { LoginGuard } from './guard';
@@ -38,6 +39,11 @@ export const routes: Routes = [
   {
     path: 'productdetails/:id',
     component: ProductDetailsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
     pathMatch: 'full'
   },
   {

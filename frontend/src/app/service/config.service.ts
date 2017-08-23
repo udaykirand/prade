@@ -31,6 +31,8 @@ export class ConfigService {
 
   private _search_url = this._api_url + '/products/search';
 
+  private _register_url = this._api_url + '/register';
+
   private message:string;
 
   sharingData: myData={message:""};
@@ -69,6 +71,10 @@ export class ConfigService {
 
   get search_url(): string {
       return this._search_url;
+  }
+
+  get register_url(): string {
+      return this._register_url;
   }
 
   saveData(str){

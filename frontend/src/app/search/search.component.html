@@ -14,7 +14,7 @@
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()" #searchForm="ngForm">
           <md-input-container>
-            <input mdInput formControlName="searchtext" required placeholder="Product Id">
+            <input mdInput formControlName="searchtext" required placeholder="Search text">
           </md-input-container>
           <button type="submit" [disabled]="!searchForm.form.valid" md-raised-button color="primary">Search</button>
         </form>

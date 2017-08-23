@@ -12,7 +12,7 @@ import { NotFoundComponent } from './not-found';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: HomeComponent,
     pathMatch: 'full'
   },
@@ -22,22 +22,22 @@ export const routes: Routes = [
     canActivate: [LoginGuard]
   },
   {
-    path: 'product',
+    path: 'admin/product',
     component: ProductComponent,
     pathMatch: 'full'
   },
     {
-    path: 'product/:id',
+    path: 'admin/product/:id',
     component: ProductComponent,
     pathMatch: 'full'
   },
   {
-    path: 'search',
+    path: 'admin/search',
     component: SearchComponent,
     pathMatch: 'full'
   },
   {
-    path: 'productdetails/:id',
+    path: 'admin/productdetails/:id',
     component: ProductDetailsComponent,
     pathMatch: 'full'
   },

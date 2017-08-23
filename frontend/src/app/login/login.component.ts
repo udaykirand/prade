@@ -53,9 +53,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    /**
-     * Innocent until proven guilty
-     */
     this.submitted = true;
     this.errorDiagnostic = null;
 
@@ -63,13 +60,30 @@ export class LoginComponent implements OnInit {
     // show me the animation
     .delay(1000)
     .subscribe(data => {
-      this.userService.getMyInfo().subscribe();
-      this.router.navigate(['/']);
+      this.userService.getMyInfo().subscribe(response => {
+        if(response != null) {
+        var isAdmin = function() {
+            var i = null;
+            for (i = 0; response.authorities.length > i; i += 1) {
+                if (response.authorities[i].authority === "ROLE_ADMIN") {
+                    return true;
+                }
+            }
+            return false;
+        };
+      if(isAdmin) {
+          this.router.navigate(['/admin']); 
+        }
+        }
+      });
+      
     },
     error => {
       this.submitted = false;
       this.errorDiagnostic = 'Incorrect username or password.';
     });
+
+    
 
   }
 

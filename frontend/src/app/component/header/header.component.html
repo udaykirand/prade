@@ -1,9 +1,9 @@
 
 <md-toolbar color="primary" class="app-navbar">
-  <button md-button md-ripple *ngIf="hasSignedIn()" routerLink="/">
+  <button md-button md-ripple *ngIf="hasSignedIn()" routerLink="/admin">
     <img alt="PraDé" class="app-angular-logo" src="assets/image/Capture.PNG">
 </button>
-<button md-button md-ripple *ngIf="!hasSignedIn()" routerLink="/">
+<button md-button md-ripple *ngIf="!hasSignedIn()" routerLink="/admin">
     <img alt="PraDé" class="app-angular-logo" src="assets/image/Capture.PNG">
 </button>
 
@@ -25,16 +25,16 @@
   
 
   <div class="left" style="margin-left:25%;">
-    <button  routerLink="/" md-button md-ripple>
+    <button  routerLink="/admin" md-button md-ripple>
       <span>HOME</span>
     </button>
-    <button  routerLink="/product" md-button md-ripple>
+    <button  routerLink="/admin/product" md-button md-ripple>
       <span>CREATE PRODUCT</span>
     </button>
-    <button  routerLink="/search" md-button md-ripple>
+    <button  routerLink="/admin/search" md-button md-ripple>
       <span>UPDATE PRODUCT</span>
     </button>
-    <button  routerLink="/search" md-button md-ripple>
+    <button  routerLink="/admin/search" md-button md-ripple>
       <span>SEARCH PRODUCTS</span>
     </button>
     <button (click)="exportProducts()" md-button md-ripple>

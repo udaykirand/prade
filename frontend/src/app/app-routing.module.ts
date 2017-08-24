@@ -8,6 +8,7 @@ import { SignupComponent } from './signup';
 import { ProductDetailsComponent } from './productdetails';
 import { SearchComponent } from './search';
 import { LoginGuard } from './guard';
+import { HomepageComponent } from './homepage';
 import { NotFoundComponent } from './not-found';
 
 export const routes: Routes = [
@@ -44,6 +45,11 @@ export const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    component: HomepageComponent,
     pathMatch: 'full'
   },
   {

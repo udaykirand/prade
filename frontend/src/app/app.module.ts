@@ -37,6 +37,7 @@ import {
   ProductService
 } from './service';
 import { SignupComponent } from './signup/signup.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 export function initUserFactory(userService: UserService) {
@@ -55,7 +56,8 @@ export function initUserFactory(userService: UserService) {
     SearchComponent,
     ProductDetailsComponent,
     NotFoundComponent,
-    SignupComponent
+    SignupComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

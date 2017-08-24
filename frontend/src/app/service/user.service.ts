@@ -42,4 +42,17 @@ export class UserService {
     return this.apiService.post(this.config.register_url, body, headers);
   }
 
+  isAdmin() {
+    var i = null;
+    if(!this.currentUser) {
+      return false;
+    }
+    for (i = 0; this.currentUser.authorities.length > i; i += 1) {
+      if (this.currentUser.authorities[i].authority === "ROLE_ADMIN") {
+        return true;
+      }
+    }
+    return false;
+  }
+
 }

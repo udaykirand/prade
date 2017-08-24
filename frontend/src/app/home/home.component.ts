@@ -27,7 +27,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(!this.userService.currentUser) {
+    console.log(this.userService.isAdmin());
+    if(!this.userService.isAdmin()) {
       this.router.navigate(['/login']); 
     }
   }
@@ -77,15 +78,15 @@ export class HomeComponent implements OnInit {
   }
 
   createProduct() {
-    this.router.navigate(['/product']);
+    this.router.navigate(['admin/product']);
   }
 
   searchProduct() {
-    this.router.navigate(['/search']);
+    this.router.navigate(['admin/search']);
   }
 
   exportProduct() {
-    if(!!this.userService.currentUser) {
+    if(this.userService.isAdmin()) {
       location.href='/api/reminder/download.xls';
     } else {
       this.router.navigate(['/login']);
@@ -93,7 +94,7 @@ export class HomeComponent implements OnInit {
   }
 
   updateProduct() {
-    this.router.navigate(['/search/']);
+    this.router.navigate(['admin/search/']);
   }
 
 }

@@ -48,7 +48,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(!this.userService.currentUser) {
+    if(!this.userService.isAdmin()) {
       this.router.navigate(['/login']);
     }
     this.form = this.formBuilder.group({

@@ -35,13 +35,18 @@ export class HeaderComponent implements OnInit {
     return !!this.userService.currentUser;
   }
 
+  isAdmin() {
+    return this.userService.isAdmin();
+  }
+
   userName() {
     const user = this.userService.currentUser;
     return user.firstname;
   }
 
   exportProducts() {
-    if(this.hasSignedIn()) {
+    if(this.userService.isAdmin()) {
+      console.log("isAdmin");
       location.href='/api/reminder/download.xls';
     } else {
       this.router.navigate(['/login']);

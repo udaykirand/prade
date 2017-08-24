@@ -29,6 +29,9 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(this.userService.currentUser) {
+      this.router.navigate(['admin']);
+    }
     this.user = {};
     this.form = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])],
@@ -36,9 +39,6 @@ export class SignupComponent implements OnInit {
       confirmPassword: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],
       terms: ['', Validators.compose([Validators.required])],
     });
-    if(this.userService.currentUser) {
-      this.router.navigate(['/']);
-    }
   }
 
   onSubmit() {

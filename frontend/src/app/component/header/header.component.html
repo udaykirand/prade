@@ -8,6 +8,9 @@
 </button>
 
   <div class="right">
+    <button *ngIf="!hasSignedIn()" routerLink="/signup" md-button md-ripple>
+      <span>Register</span>
+    </button>
     <button *ngIf="!hasSignedIn()" routerLink="/login" md-button md-ripple>
       <span>Login</span>
     </button>
@@ -24,7 +27,7 @@
 <md-toolbar color="primary" class="app-navbar">
   
 
-  <div class="left" style="margin-left:25%;">
+  <div class="left" style="margin-left:25%;" *ngIf="isAdmin()">
     <button  routerLink="/admin" md-button md-ripple>
       <span>HOME</span>
     </button>
@@ -39,6 +42,34 @@
     </button>
     <button (click)="exportProducts()" md-button md-ripple>
       <span>EXPORT PRODUCTS</span>
+    </button>
+    
+  </div>
+
+  <div class="left" style="width: 50%;margin: 0 auto;" *ngIf="!isAdmin()">
+    <button  routerLink="/" md-button md-ripple>
+      <span>HOME</span>
+    </button>
+    <button  routerLink="/" md-button md-ripple>
+      <span>BANGLES</span>
+    </button>
+    <button  routerLink="/" md-button md-ripple>
+      <span>NECKLACE</span>
+    </button>
+    <button  routerLink="/" md-button md-ripple>
+      <span>EARRINGS</span>
+    </button>
+    <button routerLink="/" md-button md-ripple>
+      <span>RINGS</span>
+    </button>
+    <button routerLink="/" md-button md-ripple>
+      <span>OTHERS</span>
+    </button>
+    <button routerLink="/" md-button md-ripple>
+      <span>OFFERS</span>
+    </button>
+    <button routerLink="/" md-button md-ripple>
+      <span>CONTACT US</span>
     </button>
     
   </div>

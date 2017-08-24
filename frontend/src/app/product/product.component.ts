@@ -69,7 +69,7 @@ export class ProductComponent implements OnInit {
     this.product = {
       metalType:["Silver", "Alloy", "Afghan alloy", "Antique silver"]
     }
-    if(!this.userService.currentUser) {
+    if(!this.userService.isAdmin()) {
       this.router.navigate(['/login']);
     }
     this.form = this.formBuilder.group({

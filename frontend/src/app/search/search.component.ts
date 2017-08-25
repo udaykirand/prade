@@ -70,7 +70,7 @@ export class SearchComponent implements OnInit {
     .subscribe(data => {
       console.log(data.data[0]);
       if(data.data != null && data.data.length > 0)
-        this.router.navigate(['product/'+data.data[0].id]);
+        this.router.navigate(['admin/product/'+data.data[0].id]);
       else
         this.errorDiagnostic = 'No search results found';
     },

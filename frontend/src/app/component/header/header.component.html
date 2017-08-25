@@ -1,13 +1,10 @@
-
 <md-toolbar color="primary" class="app-navbar">
-  <button md-button md-ripple *ngIf="hasSignedIn()" routerLink="/admin">
-    <img alt="PraDé" class="app-angular-logo" src="assets/image/Capture.PNG">
-</button>
-<button md-button md-ripple *ngIf="!hasSignedIn()" routerLink="/admin">
-    <img alt="PraDé" class="app-angular-logo" src="assets/image/Capture.PNG">
-</button>
-
-  <div class="right">
+  
+  
+<div class="right">
+  <a href="https://www.facebook.com/PraDeJewels/"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-instagram"></i></a>
     <button *ngIf="!hasSignedIn()" routerLink="/signup" md-button md-ripple>
       <span>Register</span>
     </button>
@@ -23,11 +20,14 @@
   </div>
 </md-toolbar>
 
+<md-toolbar color="primary" class="app-navbar">
+    <img alt="PraDé" class="app-angular-logo" routerLink="/" src="assets/image/Capture.PNG" style="margin-left:43%;width:220px;height:85px;">
+</md-toolbar>
+
 
 <md-toolbar color="primary" class="app-navbar">
   
-
-  <div class="left" style="margin-left:25%;" *ngIf="isAdmin()">
+<div class="left" style="margin-left:25%;" *ngIf="isAdmin()">
     <button  routerLink="/admin" md-button md-ripple>
       <span>HOME</span>
     </button>

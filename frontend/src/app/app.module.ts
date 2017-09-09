@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
 // material
 import { MaterialModule, MdIconRegistry } from '@angular/material';
 // different theme
@@ -19,11 +20,11 @@ import { LoginComponent } from './login';
 import { ProductComponent } from './product';
 import { SearchComponent } from './search';
 import { ProductDetailsComponent } from './productdetails';
-
 import { LoginGuard } from './guard';
 import { NotFoundComponent } from './not-found';
 import {
   HeaderComponent,
+  SidebarComponent,
   ApiCardComponent,
   FooterComponent
 } from './component';
@@ -48,6 +49,7 @@ export function initUserFactory(userService: UserService) {
   declarations: [
     AppComponent,
     HeaderComponent,
+    SidebarComponent,
     FooterComponent,
     ApiCardComponent,
     HomeComponent,

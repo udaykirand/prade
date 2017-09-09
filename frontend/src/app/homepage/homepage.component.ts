@@ -24,13 +24,10 @@ export class HomepageComponent implements OnInit {
       this.products = data.data;
       console.log(this.products.length);
     });
-    var IMAGES: Image[] = [
-  { "title": "We are covered", "url": "images/covered.jpg" },
-  { "title": "Generation Gap", "url": "images/generation.jpg" },
-  { "title": "Potter Me", "url": "images/potter.jpg" },
-  { "title": "Pre-School Kids", "url": "images/preschool.jpg" },
-  { "title": "Young Peter Cech", "url": "images/soccer.jpg" } 
-];
+  }
+
+  productDetails(id) {
+    console.log(id);
   }
 
 }

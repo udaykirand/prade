@@ -148,7 +148,7 @@ export class ProductComponent implements OnInit {
       description: data.data.description,
       status: data.data.status,
       metalType:data.data.metalType,
-      gem: data.data.gem,
+      gemValue: data.data.gem,
       height: data.data.height,
       weight: data.data.weight,
       size: data.data.size,

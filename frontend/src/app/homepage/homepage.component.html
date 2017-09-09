@@ -1,24 +1,26 @@
 
-<div style="margin-left:13%;">
-  <img src="assets/image/1973180.jpg" style="height: 400px;margin-left: 221px;
-    margin-bottom: 30px;">
-</div>
+
   <div style="text-align:center;font-weight: bold;
     font-family: Roboto,Helvetica Neue,sans-serif;">
     <hr>
     <h3>Our Collection</h3></div>
 <div class="content" fxLayout="row" fxLayoutAlign="space-around center" layout-wrap style="flex-wrap: wrap;width: 100%;">
 <div *ngFor="let product of products" style="width:350px;margin-top:15px;border:solid;">
+  
 <md-card>
   
-  <img md-card-image [src]="product.image" style="height: 230px;">
+  <img md-card-image [src]="product.image">
   
   <md-card-content>
+    <p>
+            {{product.name}}
+          </p>
           <p>
             {{product.description}}
           </p>
         </md-card-content>
   
 </md-card>
+  
 </div>
 </div>

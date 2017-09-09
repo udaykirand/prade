@@ -62,6 +62,7 @@ export class ApiService {
 
   private extractData(res: Response) {
     const body = res.json();
+    console.log("extract Data "+body.message+" res - "+res);
     return body || { };
   }
 

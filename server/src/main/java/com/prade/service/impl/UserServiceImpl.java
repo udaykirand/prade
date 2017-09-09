@@ -1,9 +1,6 @@
 package com.prade.service.impl;
 
-import com.prade.dao.CustomUserDao;
-import com.prade.model.User;
-import com.prade.repository.UserRepository;
-import com.prade.service.UserService;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
@@ -11,7 +8,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.prade.dao.CustomUserDao;
+import com.prade.exception.PradeException;
+import com.prade.model.User;
+import com.prade.model.UserBean;
+import com.prade.repository.UserRepository;
+import com.prade.service.UserService;
 
 /**
  * Created by udayd
@@ -46,7 +48,17 @@ public class UserServiceImpl implements UserService {
     }
     
     // By default all users will only have ROLE_USER. Admin users must be created in backend
-    public Long register(User user) throws AccessDeniedException {
+    public Long register(UserBean userBean) {
+    	User userExists = userRepository.findByUsername(userBean.getUsername());
+    	if(userExists != null) {
+    		throw new PradeException("username.exists");
+    	}
+    	if(!userBean.getPassword().equals(userBean.getConfirmPassword())) {
+    		throw new PradeException("password.doesnt.match");
+    	}
+    	User user = new User();
+    	user.setUsername(userBean.getUsername());
+    	user.setPassword(userBean.getPassword());
         User result = userRepository.save(user);
         customUserDao.insertUserRoleMapping(result.getId(), new Long(1));
         return result.getId();

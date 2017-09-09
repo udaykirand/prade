@@ -31,7 +31,7 @@ export class ConfigService {
 
   private _search_url = this._api_url + '/products/search';
 
-  private _register_url = this._api_url + '/register';
+  private _register_url = this._api_url + '/user/register';
 
   private message:string;
 

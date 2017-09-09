@@ -36,6 +36,8 @@ export class SignupComponent implements OnInit {
     this.form = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],
+      firstname: [''],
+      lastname: [''],
       confirmPassword: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],
       terms: ['', Validators.compose([Validators.required])],
     });
@@ -51,18 +53,18 @@ export class SignupComponent implements OnInit {
       this.router.navigate(['/']);
     },
     error => {
-      console.log(error.status);
+      console.log("signup component "+error);
       this.submitted = false;
       if(error.status == 403) {
         this.errorDiagnostic = 'Please login as admin to update product';
       } else {
-        this.errorDiagnostic = 'Error occured while updating product. Please try again later.';
+        console.log("Signup component else "+JSON.parse(error._body).message);
+        this.errorDiagnostic = JSON.parse(error._body).message;
       }
     });
   }
 
   login() {
-    console.log("Login pressed");
     this.router.navigate(['/login']);
   }
 

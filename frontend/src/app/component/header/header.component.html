@@ -1,6 +1,10 @@
+<div class="header">
 <md-toolbar color="primary" class="app-navbar">
-  
-  
+  <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
+  <button class="navbar-toggler navbar-toggler-right" (click)="toggleSidebar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+  </nav>
 <div class="right">
   <a href="https://www.facebook.com/PraDeJewels/"><i class="fa fa-facebook"></i></a>
 					<a href="#"><i class="fa fa-twitter"></i></a>
@@ -21,7 +25,7 @@
 </md-toolbar>
 
 <md-toolbar color="primary" class="app-navbar">
-    <img alt="PraDé" class="app-angular-logo" routerLink="/" src="assets/image/Capture.PNG" style="margin-left:43%;width:220px;height:85px;">
+    <img alt="PraDé" class="app-angular-logo" routerLink="/" src="assets/image/imageedit_2_3864744953.png">
 </md-toolbar>
 
 
@@ -46,32 +50,7 @@
     
   </div>
 
-  <div class="left" style="width: 50%;margin: 0 auto;" *ngIf="!isAdmin()">
-    <button  routerLink="/" md-button md-ripple>
-      <span>HOME</span>
-    </button>
-    <button  routerLink="/" md-button md-ripple>
-      <span>BANGLES</span>
-    </button>
-    <button  routerLink="/" md-button md-ripple>
-      <span>NECKLACE</span>
-    </button>
-    <button  routerLink="/" md-button md-ripple>
-      <span>EARRINGS</span>
-    </button>
-    <button routerLink="/" md-button md-ripple>
-      <span>RINGS</span>
-    </button>
-    <button routerLink="/" md-button md-ripple>
-      <span>OTHERS</span>
-    </button>
-    <button routerLink="/" md-button md-ripple>
-      <span>OFFERS</span>
-    </button>
-    <button routerLink="/" md-button md-ripple>
-      <span>CONTACT US</span>
-    </button>
-    
-  </div>
+  
 </md-toolbar>
 
+</div>

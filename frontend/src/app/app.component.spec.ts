@@ -12,7 +12,6 @@ import {
   HeaderComponent,
   ApiCardComponent,
   FooterComponent,
-  GithubComponent,
 } from './component';
 
 import {

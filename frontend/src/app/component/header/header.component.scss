@@ -1,17 +1,19 @@
 :host {
-  position: relative;
   z-index: 10;
   color: #fff;
+  width: 100%; 
+  margin-top: -60px;
 }
 
 .app-navbar {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-
+  padding: 0px;
+  background-color: #292c2f;
   .right {
     margin-left: auto;
     float: right;
+    height: 10px;
   }
 }
 
@@ -20,9 +22,9 @@
 }
 
 .app-angular-logo {
-  margin-left:43%;
-  width:220px;
-  height:85px;
+  width:250px;
+  margin-bottom: 66px;
+  margin-top: 50px;
 }
 
 .greeting-button {
@@ -33,6 +35,10 @@
   .greeting-button {
     display: none;
   }
+}
+
+.header {
+  height: 190px;
 }
 
 

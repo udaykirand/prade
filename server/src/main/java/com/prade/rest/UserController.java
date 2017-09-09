@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prade.model.User;
+import com.prade.model.UserBean;
 import com.prade.service.UserService;
 
 /**
@@ -43,8 +44,8 @@ public class UserController {
     }
     
     @RequestMapping( method = POST, value= "/register")
-    public Long register(@RequestBody User user) {
-    	LOG.info("User registration");
+    public Long register(@RequestBody UserBean user) {
+    	LOG.info("User registration "+user.getPassword());
     	return this.userService.register(user);
     }
 

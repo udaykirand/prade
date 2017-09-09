@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 // material
 import { MaterialModule, MdIconRegistry } from '@angular/material';
 // different theme
@@ -68,7 +68,8 @@ export function initUserFactory(userService: UserService) {
     HttpModule,
     AppRoutingModule,
     MaterialModule.forRoot(),
-    FlexLayoutModule.forRoot()
+    FlexLayoutModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   providers: [
     LoginGuard,

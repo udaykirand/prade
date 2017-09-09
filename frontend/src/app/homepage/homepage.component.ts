@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import { ProductService } from "app/service";
 
 
@@ -14,7 +15,8 @@ export class HomepageComponent implements OnInit {
   public activeSlideIndex: number = 0;
   public noWrapSlides:boolean = false;
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    public dialog: MdDialog
   ) { 
     for (let i = 0; i < 4; i++) {
       this.addSlide();
@@ -35,6 +37,34 @@ export class HomepageComponent implements OnInit {
 
   productDetails(id) {
     console.log(id);
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(GetQuoteDialog, {
+      width: '250px'
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
+}
+
+
+@Component({
+  selector: 'get-quote-dialog',
+  templateUrl: 'get-quote-dialog.html',
+})
+export class GetQuoteDialog {
+
+  constructor(
+    public dialogRef: MdDialogRef<GetQuoteDialog>,
+    @Inject(MD_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

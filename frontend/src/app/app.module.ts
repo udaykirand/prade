@@ -3,6 +3,7 @@ import { NgModule, APP_INITIALIZER} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CollapseModule } from 'ngx-bootstrap';
 // material
 import { MaterialModule, MdIconRegistry } from '@angular/material';
 // different theme
@@ -24,7 +25,6 @@ import { LoginGuard } from './guard';
 import { NotFoundComponent } from './not-found';
 import {
   HeaderComponent,
-  SidebarComponent,
   ApiCardComponent,
   FooterComponent
 } from './component';
@@ -49,7 +49,6 @@ export function initUserFactory(userService: UserService) {
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent,
     FooterComponent,
     ApiCardComponent,
     HomeComponent,
@@ -69,7 +68,8 @@ export function initUserFactory(userService: UserService) {
     AppRoutingModule,
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    CollapseModule
   ],
   providers: [
     LoginGuard,

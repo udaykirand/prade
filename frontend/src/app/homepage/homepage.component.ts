@@ -2,12 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from "app/service";
 
 
-export interface Image {
-  title: string;
-  url: string;
-}
-
-
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -15,7 +9,7 @@ export interface Image {
 })
 export class HomepageComponent implements OnInit {
   products: any;
-  public myInterval: number = 1500;
+  public myInterval: number = 4500;
   public slides: any[] = [];
   public activeSlideIndex: number = 0;
   public noWrapSlides:boolean = false;
@@ -29,14 +23,13 @@ export class HomepageComponent implements OnInit {
 
   public addSlide(): void {
     this.slides.push({
-      image: `assets/image/${ this.slides.length % 8 + 1 }.jpg`
+      image: `assets/image/1.jpg`
     });
   }
 
   ngOnInit() {
     this.productService.getAllProducts().subscribe(data => {
       this.products = data.data;
-      console.log(this.products.length);
     });
   }
 

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  products: any;
   constructor(
     private userService: UserService,
     private authService: AuthService,
@@ -53,9 +53,22 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  toggleSidebar() {
-        const dom: any = document.querySelector('body');
-        dom.classList.toggle('push-right');
+  myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
     }
+}
 
+loadBangles() {
+    this.products = [
+      {
+        name: "bangle1",
+        description: "bangle 1",
+        image:"image1"
+      }
+    ];
+  }
 }

@@ -1,10 +1,6 @@
 <div class="header">
 <md-toolbar color="primary" class="app-navbar">
-  <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
-  <button class="navbar-toggler navbar-toggler-right" (click)="toggleSidebar()">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-  </nav>
+
 <div class="right">
   <a href="https://www.facebook.com/PraDeJewels/"><i class="fa fa-facebook"></i></a>
 					<a href="#"><i class="fa fa-twitter"></i></a>
@@ -24,13 +20,10 @@
   </div>
 </md-toolbar>
 
-<md-toolbar color="primary" class="app-navbar">
+<div class="prade-logo">
     <img alt="PraDé" class="app-angular-logo" routerLink="/" src="assets/image/imageedit_2_3864744953.png">
-</md-toolbar>
-
-
+</div>
 <md-toolbar color="primary" class="app-navbar">
-  
 <div class="left" style="margin-left:25%;" *ngIf="isAdmin()">
     <button  routerLink="/admin" md-button md-ripple>
       <span>HOME</span>
@@ -49,8 +42,50 @@
     </button>
     
   </div>
-
-  
+  <div class="left" id="myTopnav" style="background-color:black;width:100%;text-align: center;" *ngIf="!isAdmin()">
+    <button  routerLink="/" class="menu" hide-gt-sm md-button md-ripple>
+      <span>HOME</span>
+    </button>
+    <div class="dropdown">
+    <button  routerLink="/" md-button md-ripple>
+      <span>SILVER</span>
+    </button>
+    <div class="dropdown-content">
+      <a href="#" (click)="loadBangles()">Earrings</a>
+      <a href="#">Rings</a>
+      <a href="#">Bangles</a>
+      <a href="#">Others</a>
+  </div>
+    </div>
+    <div class="dropdown">
+    <button  routerLink="/" md-button md-ripple>
+      <span>AFGHANI SILVER</span>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Earrings</a>
+      <a href="#">Rings</a>
+      <a href="#">Bangles</a>
+      <a href="#">Others</a>
+  </div>
+    </div>
+    
+    <div class="dropdown">
+    <button  routerLink="/" md-button md-ripple>
+      <span>ANTIQUE SILVER</span>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Earrings</a>
+      <a href="#">Rings</a>
+      <a href="#">Bangles</a>
+      <a href="#">Others</a>
+  </div>
+    </div>
+    <button md-button md-ripple>
+      <span>GALLERY</span>
+    </button>
+    <button md-button md-ripple>
+      <span>CONTACT US</span>
+    </button>
+    </div>
 </md-toolbar>
-
 </div>

@@ -21,8 +21,10 @@ import { LoginComponent } from './login';
 import { ProductComponent } from './product';
 import { SearchComponent } from './search';
 import { ProductDetailsComponent } from './productdetails';
+import { MdConfirmDialogModule } from './homepage/md-confirm-dialog.module';
 import { LoginGuard } from './guard';
 import { NotFoundComponent } from './not-found';
+
 import {
   HeaderComponent,
   ApiCardComponent,
@@ -39,7 +41,6 @@ import {
 } from './service';
 import { SignupComponent } from './signup/signup.component';
 import { HomepageComponent } from './homepage/homepage.component';
-
 
 export function initUserFactory(userService: UserService) {
     return () => userService.initUser();
@@ -69,7 +70,8 @@ export function initUserFactory(userService: UserService) {
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
     CarouselModule.forRoot(),
-    CollapseModule
+    CollapseModule,
+    MdConfirmDialogModule
   ],
   providers: [
     LoginGuard,

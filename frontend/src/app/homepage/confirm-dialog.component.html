@@ -1,0 +1,13 @@
+<div>
+<h2 md-dialog-title *ngIf="!!textOptions.title">{{textOptions.title}}</h2>
+<md-dialog-content>{{textOptions.message}}</md-dialog-content>
+<form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+<md-input-container>
+    <input mdInput required placeholder="Email/Phone number">
+</md-input-container>
+</form>
+<md-dialog-actions>
+  <button type="button" (click)="submit()" md-raised-button color="primary">Contact me</button>
+  <button type="button" (click)="closeModal()" md-raised-button color="primary">No, thanks</button>
+</md-dialog-actions>
+</div>

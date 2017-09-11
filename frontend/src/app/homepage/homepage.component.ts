@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ProductService } from "app/service";
-
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import { ConfirmDialogService } from './confirm-dialog.service';
 
 @Component({
   selector: 'app-homepage',
@@ -14,9 +14,11 @@ export class HomepageComponent implements OnInit {
   public slides: any[] = [];
   public activeSlideIndex: number = 0;
   public noWrapSlides:boolean = false;
+  contact: string;
   constructor(
     private productService: ProductService,
-    public dialog: MdDialog
+    public dialog: MdDialog,
+    private ConfirmDialogService: ConfirmDialogService
   ) { 
     for (let i = 0; i < 4; i++) {
       this.addSlide();
@@ -39,32 +41,14 @@ export class HomepageComponent implements OnInit {
     console.log(id);
   }
 
-  openDialog(): void {
-    let dialogRef = this.dialog.open(GetQuoteDialog, {
-      width: '250px'
-      
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      
+  openGetQuoteModal(): void {
+    this.ConfirmDialogService.showModal({
+      title: 'Thank you for showing intrest!',
+      message: 'Please enter your email address or phone number. We will contact you shortly.',
+      confirmText: 'Hells YEAH!',
+      denyText: 'Hells to the NAH!'
+    }, '450px').subscribe(result => {
+      console.log('ConfrimDialogService closed with response: ' + result);
     });
   }
-}
-
-
-@Component({
-  selector: 'get-quote-dialog',
-  templateUrl: 'get-quote-dialog.html',
-})
-export class GetQuoteDialog {
-
-  constructor(
-    public dialogRef: MdDialogRef<GetQuoteDialog>,
-    @Inject(MD_DIALOG_DATA) public data: any) { }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
 }

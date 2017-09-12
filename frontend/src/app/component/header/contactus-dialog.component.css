@@ -1,0 +1,33 @@
+#main { 
+    margin: 0 auto;
+    height: 300px;
+    color: whitesmoke;
+}
+#contactDetails {
+    width: 50%;
+    float: left;
+}
+
+#contactForm  {
+    width: 50%;
+    margin-left: 50%;
+}
+
+#contact {
+    margin-left: 20px;
+}
+
+#contactDetails:after {
+  content: "";
+  background-color: #000;
+  position: absolute;
+  width: 2px;
+  height: 80%;
+  top: 10px;
+  left: 50%;
+  display: block;
+}
+
+button {
+    margin-right: 10px;
+}

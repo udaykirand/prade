@@ -21,7 +21,8 @@ import { LoginComponent } from './login';
 import { ProductComponent } from './product';
 import { SearchComponent } from './search';
 import { ProductDetailsComponent } from './productdetails';
-import { MdConfirmDialogModule } from './homepage/md-confirm-dialog.module';
+import { MdConfirmDialogModule } from './dialog/md-confirm-dialog.module';
+import { ContactUsDialogModule } from './component/header/contactus-dialog.module';
 import { LoginGuard } from './guard';
 import { NotFoundComponent } from './not-found';
 
@@ -71,7 +72,8 @@ export function initUserFactory(userService: UserService) {
     FlexLayoutModule.forRoot(),
     CarouselModule.forRoot(),
     CollapseModule,
-    MdConfirmDialogModule
+    MdConfirmDialogModule,
+    ContactUsDialogModule
   ],
   providers: [
     LoginGuard,

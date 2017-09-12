@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ProductService } from "app/service";
-import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
-import { ConfirmDialogService } from './confirm-dialog.service';
+import { ConfirmDialogService } from '../dialog/confirm-dialog.service';
 
 @Component({
   selector: 'app-homepage',
@@ -17,7 +16,6 @@ export class HomepageComponent implements OnInit {
   contact: string;
   constructor(
     private productService: ProductService,
-    public dialog: MdDialog,
     private ConfirmDialogService: ConfirmDialogService
   ) { 
     for (let i = 0; i < 4; i++) {

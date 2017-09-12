@@ -5,6 +5,7 @@ import {
   ConfigService
 } from '../../service';
 import { Router } from '@angular/router';
+import { ContactUsModalService } from './contactus-modal.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private config: ConfigService,
-    private router: Router
+    private router: Router,
+    private contactUsModalService: ContactUsModalService
   ) { }
 
   ngOnInit() {
@@ -70,5 +72,17 @@ loadBangles() {
         image:"image1"
       }
     ];
+  }
+
+  openContactUsModal(): void {
+    console.log("openContactUs");
+    this.contactUsModalService.showModal({
+      title: 'Thank you for showing intrest!',
+      message: 'Please enter your email address or phone number. We will contact you shortly.',
+      confirmText: 'Hells YEAH!',
+      denyText: 'Hells to the NAH!'
+    }, '600px').subscribe(result => {
+      console.log('ConfrimDialogService closed with response: ' + result);
+    });
   }
 }

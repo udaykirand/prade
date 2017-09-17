@@ -1,12 +1,14 @@
 package com.prade.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.prade.model.EmailMessage;
 import com.prade.model.QuoteRequest;
 import com.prade.service.ContactService;
 import com.prade.service.EmailService;
 
+@Service
 public class ContactServiceImpl implements ContactService {
 	
 	@Autowired

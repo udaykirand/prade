@@ -12,7 +12,7 @@
 		<file>${user.home}/logs/prade.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
-			<fileNamePattern>${user.home}/logs/sentry.%d{yyyy-MM-dd}.%i.log
+			<fileNamePattern>${user.home}/logs/prade.%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

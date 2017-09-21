@@ -3,8 +3,9 @@
 <md-dialog-content>{{textOptions.message}}</md-dialog-content>
 <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
 <md-input-container>
-    <input mdInput required placeholder="Email/Phone number">
+    <input mdInput required placeholder="Email/Phone number" formControlName="email">
 </md-input-container>
+  <input type="hidden" formControlName="productId" value={{textOptions.productId}}/>
 </form>
 <md-dialog-actions>
   <button type="button" (click)="submit()" md-raised-button color="primary">Contact me</button>

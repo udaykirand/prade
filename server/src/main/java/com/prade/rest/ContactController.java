@@ -20,6 +20,7 @@ public class ContactController {
 	
 	@RequestMapping( method = POST)
 	public Result quoteRequest(@RequestBody QuoteRequest quoteRequest) {
+		System.out.println(quoteRequest.getContact());
 		contactService.quoteRequest(quoteRequest);
 		return new Result("SUCCESS", null, true);
 	}

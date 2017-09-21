@@ -42,6 +42,7 @@ export class ApiService {
   }
 
   post(path: string, body, customHeaders?, put?): Observable<any> {
+    console.log("post "+body);
     return this.http.request(
       path,
       {

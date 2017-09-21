@@ -15,4 +15,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	@Query("SELECT DISTINCT p.type FROM Product p")
 	List<String> findDistinctType();
+
+	List<Product> findByTypeAndMetalType(String type, String metalType);
 }

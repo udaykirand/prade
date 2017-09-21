@@ -66,4 +66,9 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.findDistinctType();
 	}
 
+	@Override
+	public List<Product> getProductTypeAndMetal(String type, String metal) {
+		return productRepository.findByTypeAndMetalType(type, metal);
+	}
+
 }

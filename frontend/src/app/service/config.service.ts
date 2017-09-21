@@ -33,6 +33,8 @@ export class ConfigService {
 
   private _register_url = this._api_url + '/user/register';
 
+  private _contact_url = this._api_url + '/contact';
+
   private message:string;
 
   sharingData: myData={message:""};
@@ -75,6 +77,10 @@ export class ConfigService {
 
   get register_url(): string {
       return this._register_url;
+  }
+
+  get contact_url(): string {
+      return this._contact_url;
   }
 
   saveData(str){

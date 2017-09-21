@@ -18,7 +18,7 @@ import { ContactUsModalService } from './contactus-modal.service';
     MdDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   declarations: [ContactUsDialogComponent],
   providers: [ContactUsModalService],

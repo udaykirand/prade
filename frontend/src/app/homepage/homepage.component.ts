@@ -39,12 +39,13 @@ export class HomepageComponent implements OnInit {
     console.log(id);
   }
 
-  openGetQuoteModal(): void {
+  openGetQuoteModal(productId): void {
     this.ConfirmDialogService.showModal({
       title: 'Thank you for showing intrest!',
       message: 'Please enter your email address or phone number. We will contact you shortly.',
       confirmText: 'Hells YEAH!',
-      denyText: 'Hells to the NAH!'
+      denyText: 'Hells to the NAH!',
+      productId: productId
     }, '450px').subscribe(result => {
       console.log('ConfrimDialogService closed with response: ' + result);
     });

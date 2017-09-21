@@ -104,7 +104,7 @@ export class ProductComponent implements OnInit {
     .subscribe(data => {
       console.log(data.data);
       this.config.saveData("Product updated successfully");
-      this.router.navigate(['/']);
+      this.router.navigateByUrl('/admin');
     },
     error => {
       console.log(error.status);
@@ -121,7 +121,7 @@ export class ProductComponent implements OnInit {
     .subscribe(data => {
       console.log(data.data);
       this.config.saveData("Product created successfully with id : "+data.data);
-      this.router.navigate(['/']);
+      this.router.navigate(['/admin']);
     },
     error => {
       console.log(error.status);

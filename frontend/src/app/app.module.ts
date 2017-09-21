@@ -20,7 +20,6 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { ProductComponent } from './product';
 import { SearchComponent } from './search';
-import { ProductDetailsComponent } from './productdetails';
 import { MdConfirmDialogModule } from './dialog/md-confirm-dialog.module';
 import { ContactUsDialogModule } from './component/header/contactus-dialog.module';
 import { LoginGuard } from './guard';
@@ -57,7 +56,6 @@ export function initUserFactory(userService: UserService) {
     LoginComponent,
     ProductComponent,
     SearchComponent,
-    ProductDetailsComponent,
     NotFoundComponent,
     SignupComponent,
     HomepageComponent
@@ -68,8 +66,8 @@ export function initUserFactory(userService: UserService) {
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterialModule.forRoot(),
-    FlexLayoutModule.forRoot(),
+    MaterialModule,
+    FlexLayoutModule,
     CarouselModule.forRoot(),
     CollapseModule,
     MdConfirmDialogModule,

@@ -18,7 +18,7 @@ import { ConfirmDialogService } from './confirm-dialog.service';
     MdDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   declarations: [ConfirmDialogComponent],
   providers: [ConfirmDialogService],

@@ -31,7 +31,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		// Define all possible view resolvers
 		List<ViewResolver> resolvers = new ArrayList<>();
 
-		resolvers.add(excelViewResolver());
+		//resolvers.add(excelViewResolver());
 
 		resolver.setViewResolvers(resolvers);
 		return resolver;
@@ -40,9 +40,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	/*
 	 * Configure View resolver to provide XLS output using Apache POI library to
 	 * generate XLS output for an object content
-	 */
+	 
 	@Bean
 	public ViewResolver excelViewResolver() {
 		return new ExcelViewResolver();
-	}
+	}*/
 }

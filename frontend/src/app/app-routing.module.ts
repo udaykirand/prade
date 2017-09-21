@@ -5,7 +5,6 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { ProductComponent } from './product';
 import { SignupComponent } from './signup';
-import { ProductDetailsComponent } from './productdetails';
 import { SearchComponent } from './search';
 import { LoginGuard } from './guard';
 import { HomepageComponent } from './homepage';
@@ -35,11 +34,6 @@ export const routes: Routes = [
   {
     path: 'admin/search',
     component: SearchComponent,
-    pathMatch: 'full'
-  },
-  {
-    path: 'admin/productdetails/:id',
-    component: ProductDetailsComponent,
     pathMatch: 'full'
   },
   {

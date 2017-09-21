@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {
   UserService,
   AuthService,
-  ConfigService
+  ConfigService,
+  ProductService
 } from '../../service';
 import { Router } from '@angular/router';
 import { ContactUsModalService } from './contactus-modal.service';
@@ -19,7 +20,8 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private config: ConfigService,
     private router: Router,
-    private contactUsModalService: ContactUsModalService
+    private contactUsModalService: ContactUsModalService,
+    private productService: ProductService
   ) { }
 
   ngOnInit() {
@@ -55,25 +57,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-
-loadBangles() {
-    this.products = [
-      {
-        name: "bangle1",
-        description: "bangle 1",
-        image:"image1"
-      }
-    ];
-  }
-
   openContactUsModal(): void {
     console.log("openContactUs");
     this.contactUsModalService.showModal({
@@ -84,5 +67,14 @@ loadBangles() {
     }, '600px').subscribe(result => {
       console.log('ConfrimDialogService closed with response: ' + result);
     });
+  }
+
+  getBangles() {
+    this.productService.setProduct({
+      productId: 5,
+      name: "test name",
+      image: "test_image",
+      description: "test_description"
+    })
   }
 }

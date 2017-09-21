@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from '../service/api.service';
+import { ConfigService } from '../service/config.service';
+import { Headers } from '@angular/http';
 
 @Component({
   templateUrl: './confirm-dialog.component.html',
@@ -15,16 +18,27 @@ export class ConfirmDialogComponent implements OnInit {
       private dialogRef: MdDialogRef<ConfirmDialogComponent>,
       @Inject(MD_DIALOG_DATA) private data: any,
       private formBuilder: FormBuilder,
+      private apiService: ApiService,
+      private config: ConfigService
     ) { }
   
     ngOnInit() {
       this.textOptions = this.data.textOptions;
       this.form = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(64)])]
+      email: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(64)])],
+      productId: ['']
       });
     }
 
     submit() {
+      console.log("submit "+this.textOptions.productId);
+      const body = `{"contact":"${this.form.value.email}", "productId":"${this.textOptions.productId}"}`;
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      this.apiService.post(this.config.contact_url, body, headers)
+      .subscribe(data => {
+      console.log(data.data);
+      });
       this.dialogRef.close();
     }
 
@@ -38,5 +52,6 @@ export class ConfirmDialogComponent implements OnInit {
     message: string;
     confirmText: string;
     denyText: string;
+    productId: string;
   }
   

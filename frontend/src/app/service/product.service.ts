@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { Headers } from '@angular/http';
 import { ApiService } from './api.service';
 import { ConfigService } from './config.service';
+import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class ProductService {
 
   currentUser;
+  private products = new Subject(); 
 
   constructor(
     private apiService: ApiService,
@@ -43,5 +45,9 @@ export class ProductService {
 
   getAllProducts() {
     return this.apiService.get(this.config.product_url);
+  }
+
+  setProduct(product) {
+    this.products.next(product);
   }
 }

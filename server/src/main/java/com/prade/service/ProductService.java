@@ -20,4 +20,6 @@ public interface ProductService {
 
 	List<String> getProductTypes();
 
+	List<Product> getProductTypeAndMetal(String type, String metal);
+
 }

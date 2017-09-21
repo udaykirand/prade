@@ -14,7 +14,8 @@ export class ConfirmDialogService {
     let _textOptions: ConfirmDialogTextOptions = {
       message: 'Are you sure?',
       confirmText: 'Yes',
-      denyText: 'No'
+      denyText: 'No',
+      productId: ''
     };
 
     if (!!textOptions) {
@@ -22,6 +23,7 @@ export class ConfirmDialogService {
       _textOptions.message = textOptions.message || _textOptions.message;
       _textOptions.confirmText = textOptions.confirmText || _textOptions.confirmText;
       _textOptions.denyText = textOptions.denyText || _textOptions.denyText;
+      _textOptions.productId = textOptions.productId || _textOptions.productId;
     }
 
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -41,4 +43,5 @@ export class ConfirmDialogServiceTextOptions {
   message?: string;
   confirmText?: string;
   denyText?: string;
+  productId?: string;
 }

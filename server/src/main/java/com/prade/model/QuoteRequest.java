@@ -1,12 +1,26 @@
 package com.prade.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "QUOTE_REQUEST")
 public class QuoteRequest {
+	
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	private Long productId;
 	
 	private String productName;
 	
-	private String toContact;
+	private String contact;
 	
 	private String message;
 
@@ -26,12 +40,12 @@ public class QuoteRequest {
 		this.productName = productName;
 	}
 
-	public String getToContact() {
-		return toContact;
+	public String getContact() {
+		return contact;
 	}
 
-	public void setToContact(String toContact) {
-		this.toContact = toContact;
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
 	public String getMessage() {

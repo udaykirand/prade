@@ -11,8 +11,8 @@
     font-family: Roboto,Helvetica Neue,sans-serif;">
     <hr>
     <h3>Our Collection</h3></div>
-<div class="content" fxLayout="row" fxLayoutAlign="space-around center" layout-wrap style="flex-wrap: wrap;width: 100%;">
-<div *ngFor="let product of products" style="width:350px;margin-top:15px;border:solid;">
+<div class="grid"  layout="horizontal" layout-align="center center" style="flex-wrap:wrap;">
+<div *ngFor="let product of products" style="width:350px;margin-top:15px;border:solid; margin-right:15px;">
   
 <md-card>
   <img md-card-image [src]="product.image">
@@ -24,7 +24,7 @@
     <p>
       {{product.description}}
     </p>
-    <button type="button" (click)="openGetQuoteModal()" md-raised-button color="primary" style="margin-left:200px;">Get Quote</button>
+    <button type="button" (click)="openGetQuoteModal(product.id)" md-raised-button color="primary" style="margin-left:200px;">Get Quote</button>
   </md-card-content>
 </md-card>
 

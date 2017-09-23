@@ -15,7 +15,9 @@
 <div *ngFor="let product of products" style="width:350px;margin-top:15px;border:solid; margin-right:15px;">
   
 <md-card>
-  <img md-card-image [src]="product.image">
+  <a [href]="product.image" data-fancybox [attr.data-caption]="product.name">
+    <img md-card-image [src]="product.image">
+  </a>
   <md-card-content>
     <p>
       {{product.name}}

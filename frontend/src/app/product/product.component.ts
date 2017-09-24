@@ -45,7 +45,6 @@ export class ProductComponent implements OnInit {
     private config:ConfigService
   ) {
     this.route.params.subscribe( params => {
-      console.log(params);
       if (params['id']) { 
         this.btnText = 'Update';
         this.isUpdate = true;
@@ -90,12 +89,10 @@ export class ProductComponent implements OnInit {
     if(this.isUpdate) {
     this.productService.updateProduct(this.prodId, this.form.value)
     .subscribe(data => {
-      console.log(data.data);
       this.config.saveData("Product updated successfully");
       this.router.navigateByUrl('/admin');
     },
     error => {
-      console.log(error.status);
       this.submitted = false;
       if(error.status == 403) {
         this.errorDiagnostic = 'Please login as admin to create product';
@@ -107,12 +104,10 @@ export class ProductComponent implements OnInit {
   else {
     this.productService.createProduct(this.form.value)
     .subscribe(data => {
-      console.log(data.data);
       this.config.saveData("Product created successfully with id : "+data.data);
       this.router.navigate(['/admin']);
     },
     error => {
-      console.log(error.status);
       this.submitted = false;
       if(error.status == 403) {
         this.errorDiagnostic = 'Please login as admin to update product';
@@ -129,31 +124,28 @@ export class ProductComponent implements OnInit {
     this.productService.getProduct(id)
     .subscribe(data => {
       if(data.data != null) {
-      console.log(data.data);
-      console.log(data.data.id);
       this.product = {
-      name: data.data.name,
-      description: data.data.description,
-      status: data.data.status,
-      metalType:data.data.metalType,
-      gemValue: data.data.gem,
-      height: data.data.height,
-      weight: data.data.weight,
-      size: data.data.size,
-      quantity: data.data.quantity,
-      image: data.data.image,
-      category: data.data.category,
-      soldOut: data.data.soldOut,
-      toRestock: data.data.reStock,
-      actualPrice: data.data.actualPrice,
-      sellingPrice: data.data.sellingPrice  
-    };
+        name: data.data.name,
+        description: data.data.description,
+        status: data.data.status,
+        metalType:data.data.metalType,
+        gemValue: data.data.gem,
+        height: data.data.height,
+        weight: data.data.weight,
+        size: data.data.size,
+        quantity: data.data.quantity,
+        image: data.data.image,
+        category: data.data.category,
+        soldOut: data.data.soldOut,
+        toRestock: data.data.reStock,
+        actualPrice: data.data.actualPrice,
+        sellingPrice: data.data.sellingPrice  
+      };
       } else {
       this.productNotFound = 'Invalid product id';
       }
     },
     error => {
-      console.log(error.status);
       this.submitted = false;
       if(error.status == 403) {
         this.errorDiagnostic = 'Please login as admin to create or update products';

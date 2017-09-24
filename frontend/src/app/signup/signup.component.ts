@@ -48,17 +48,14 @@ export class SignupComponent implements OnInit {
     this.errorDiagnostic = null;
     this.userService.register(this.form.value)
     .subscribe(data => {
-      console.log(data.data);
       this.config.saveData("Product created successfully with id : "+data.data);
       this.router.navigate(['/']);
     },
     error => {
-      console.log("signup component "+error);
       this.submitted = false;
       if(error.status == 403) {
         this.errorDiagnostic = 'Please login as admin to update product';
       } else {
-        console.log("Signup component else "+JSON.parse(error._body).message);
         this.errorDiagnostic = JSON.parse(error._body).message;
       }
     });

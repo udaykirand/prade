@@ -24,7 +24,6 @@ export class ProductService {
   }
 
   searchProduct(searchtext) {
-    console.log("in searchProduct "+searchtext);
     return this.apiService.get(this.config.search_url, searchtext);
   }
 

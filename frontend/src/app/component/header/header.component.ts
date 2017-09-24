@@ -50,7 +50,6 @@ export class HeaderComponent implements OnInit {
 
   exportProducts() {
     if(this.userService.isAdmin()) {
-      console.log("isAdmin");
       location.href='/api/reminder/download.xls';
     } else {
       this.router.navigate(['/login']);
@@ -58,14 +57,13 @@ export class HeaderComponent implements OnInit {
   }
 
   openContactUsModal(): void {
-    console.log("openContactUs");
     this.contactUsModalService.showModal({
       title: 'Thank you for showing intrest!',
       message: 'Please enter your email address or phone number. We will contact you shortly.',
       confirmText: 'Hells YEAH!',
       denyText: 'Hells to the NAH!'
     }, '600px').subscribe(result => {
-      console.log('ConfrimDialogService closed with response: ' + result);
+      // Left blank intentionally
     });
   }
 

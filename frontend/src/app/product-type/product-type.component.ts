@@ -26,7 +26,7 @@ export class ProductTypeComponent implements OnInit {
         this.type = params['type'];
         this.metal = params['metal'];
       } else {
-        console.log("Metal and type doesn't exist");
+        // Display toast
       }
     });
     for (let i = 0; i < 4; i++) {
@@ -57,7 +57,7 @@ export class ProductTypeComponent implements OnInit {
       denyText: 'Hells to the NAH!',
       productId: productId
     }, '450px').subscribe(result => {
-      console.log('ConfrimDialogService closed with response: ' + result);
+      // Left blank
     });
   }
 

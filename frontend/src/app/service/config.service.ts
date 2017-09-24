@@ -84,16 +84,13 @@ export class ConfigService {
   }
 
   saveData(str){
-    console.log('save data function called' + str + this.sharingData.message);
     this.sharingData.message=str; 
   }
   getData():string {
-    console.log('get data function called');
     return this.sharingData.message;
   }
 
   resetData() {
-      console.log("reset data "+this.sharingData.message);
       this.sharingData.message = "";
   }
 

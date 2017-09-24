@@ -13,10 +13,10 @@
       <p>Please enter your details below. We will reach you shortly.</p>
       <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #contactUsForm="ngForm">
       <md-input-container>
-        <input mdInput required placeholder="Email/Phone number">
+        <input mdInput required placeholder="Email/Phone number" formControlName="email">
       </md-input-container>
       <md-input-container>
-        <textarea mdInput placeholder="Message"></textarea>
+        <textarea mdInput placeholder="Message" formControlName="message"></textarea>
       </md-input-container>
       </form>
       <md-dialog-actions>

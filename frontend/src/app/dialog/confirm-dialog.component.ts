@@ -31,13 +31,12 @@ export class ConfirmDialogComponent implements OnInit {
     }
 
     submit() {
-      console.log("submit "+this.textOptions.productId);
       const body = `{"contact":"${this.form.value.email}", "productId":"${this.textOptions.productId}"}`;
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       this.apiService.post(this.config.contact_url, body, headers)
       .subscribe(data => {
-      console.log(data.data);
+        // Display toast
       });
       this.dialogRef.close();
     }

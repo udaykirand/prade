@@ -42,7 +42,6 @@ export class ApiService {
   }
 
   post(path: string, body, customHeaders?, put?): Observable<any> {
-    console.log("post "+body);
     return this.http.request(
       path,
       {
@@ -63,7 +62,6 @@ export class ApiService {
 
   private extractData(res: Response) {
     const body = res.json();
-    console.log("extract Data "+body.message+" res - "+res);
     return body || { };
   }
 

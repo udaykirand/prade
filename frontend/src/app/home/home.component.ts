@@ -27,14 +27,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.userService.isAdmin());
     if(!this.userService.isAdmin()) {
       this.router.navigate(['/login']); 
     }
   }
 
   makeRequest(path) {
-    console.log(path);
     if (path === this.config.foo_url) {
       this.fooService.getFoo()
       .subscribe(res => {

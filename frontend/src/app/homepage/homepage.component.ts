@@ -48,7 +48,7 @@ export class HomepageComponent implements OnInit {
       denyText: 'Hells to the NAH!',
       productId: productId
     }, '450px').subscribe(result => {
-      console.log('ConfrimDialogService closed with response: ' + result);
+      // Left blank
     });
   }
 }

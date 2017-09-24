@@ -75,6 +75,12 @@ img.app-angular-logo:empty
 	left: 50%;
 }
 }
+
+@media only screen and (min-device-width: 1024px) {
+  img.app-angular-logo:empty {
+    top:8%;
+}
+}
 /* Dropdown Button */
 .dropbtn {
     background-color: #4CAF50;

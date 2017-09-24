@@ -21,10 +21,13 @@ export class ProductTypeComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
               private ConfirmDialogService: ConfirmDialogService) {
+    this.products = [];
     this.route.params.subscribe( params => {
       if (params['type'] && params['metal']) { 
+        console.log(params);
         this.type = params['type'];
         this.metal = params['metal'];
+        this.loadProducts();
       } else {
         // Display toast
       }
@@ -41,12 +44,20 @@ export class ProductTypeComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.loadProducts();
+  }
+
+  loadProducts() {
+      console.log("Type - "+this.type+" metal - "+this.metal);
+      this.message = "";
       this.productService.getProductByType(this.type, this.metal).subscribe(data => {
       this.products = data.data;
+      if(this.products.length == 0) {
+        console.log("Setting message");
+        this.message = "No products found";
+      }
     });
-    if(this.products.length == 0) {
-      this.message = "No products found";
-    }
+    
   }
 
   openGetQuoteModal(productId): void {

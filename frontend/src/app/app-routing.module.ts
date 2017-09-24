@@ -8,6 +8,7 @@ import { SignupComponent } from './signup';
 import { SearchComponent } from './search';
 import { LoginGuard } from './guard';
 import { HomepageComponent } from './homepage';
+import { ProductTypeComponent } from './product-type';
 import { NotFoundComponent } from './not-found';
 
 export const routes: Routes = [
@@ -44,6 +45,11 @@ export const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'product/type/:type/metal/:metal',
+    component: ProductTypeComponent,
     pathMatch: 'full'
   },
   {

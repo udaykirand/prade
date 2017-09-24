@@ -5,14 +5,9 @@
   </slide>
 </carousel>
 </div>
-<br/>
-
-  <div style="text-align:center;font-weight: bold;
-    font-family: Roboto,Helvetica Neue,sans-serif;">
-    <hr>
-    <h3>Our Collection</h3></div>
-<div layout="row" layout-align="center center" style="flex-wrap:wrap;" layout-wrap>
-<div layout="column" *ngFor="let product of products" style="width:350px;margin-top:15px;border:solid; margin-right:15px;">
+<div class="message">{{ message }}</div>
+<div class="grid"  layout="horizontal" layout-align="center center" style="flex-wrap:wrap;">
+<div *ngFor="let product of products" style="width:350px;margin-top:15px;border:solid; margin-right:15px;">
   
 <md-card>
   <a [href]="product.image" data-fancybox="{clickContent : 'false'}" [attr.data-caption]="product.name">
@@ -32,4 +27,3 @@
 
 </div>
 </div>
-

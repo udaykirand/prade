@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ProductService } from "app/service";
 import { ConfirmDialogService } from '../dialog/confirm-dialog.service';
 
+declare var $:any;
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -32,7 +33,7 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.productService.getAllProducts().subscribe(data => {
       this.products = data.data;
-    });
+    });   
   }
 
   productDetails(id) {

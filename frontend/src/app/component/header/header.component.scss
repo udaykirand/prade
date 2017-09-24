@@ -25,10 +25,9 @@
   width:250px;
   position: absolute;
 	max-width: 80%;
-	top: 10%;
-	left: 10%;
-	border-radius: 3px;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+	top: 12%;
+  left: 10%;
+  border-radius: 3px;
 }
 
 .greeting-button {
@@ -52,7 +51,7 @@
 
 img.app-angular-logo:empty
 {
-	top: 14%;
+	top: 17%;
 	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
@@ -69,6 +68,13 @@ img.app-angular-logo:empty
   img.app-angular-logo { max-height: 90%; }
 }
 
+@media all and (device-width: 768px) and (device-height: 1024px) {
+  img.app-angular-logo:empty
+{
+	top: 12%;
+	left: 50%;
+}
+}
 /* Dropdown Button */
 .dropbtn {
     background-color: #4CAF50;

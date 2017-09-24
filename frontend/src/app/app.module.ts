@@ -41,6 +41,7 @@ import {
 } from './service';
 import { SignupComponent } from './signup/signup.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { ProductTypeComponent } from './product-type/product-type.component';
 
 export function initUserFactory(userService: UserService) {
     return () => userService.initUser();
@@ -58,7 +59,8 @@ export function initUserFactory(userService: UserService) {
     SearchComponent,
     NotFoundComponent,
     SignupComponent,
-    HomepageComponent
+    HomepageComponent,
+    ProductTypeComponent
   ],
   imports: [
     BrowserModule,

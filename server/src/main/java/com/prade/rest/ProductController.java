@@ -68,6 +68,7 @@ public class ProductController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/type/{type}/metal/{metal}")
 	public Result getProductsByTypeAndMetal(@PathVariable String type, @PathVariable String metal) {
+		System.out.println(type + "   " + metal);
 		return new Result(Constants.SUCCESS, null, productService.getProductTypeAndMetal(type, metal));
 	}
 

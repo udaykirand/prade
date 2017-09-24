@@ -50,4 +50,8 @@ export class ProductService {
   setProduct(product) {
     this.products.next(product);
   }
+
+  getProductByType(type, metal) {
+    return this.apiService.get(this.config.product_url+'/type/'+type+'/metal/'+metal);
+  }
 }

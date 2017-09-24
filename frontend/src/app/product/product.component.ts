@@ -25,17 +25,8 @@ export class ProductComponent implements OnInit {
   title = 'Create Product';
   form: FormGroup;
 
-  /**
-   * Boolean used in telling the UI
-   * that the form has been submitted
-   * and is awaiting a response
-   */
   submitted = false;
-
-  /**
-   * Diagnostic message from received
-   * form request error
-   */
+  
   errorDiagnostic: string;
   productNotFound: string;
   successMessage: string;
@@ -66,9 +57,6 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.product = {
-      metalType:["Silver", "Alloy", "Afghan alloy", "Antique silver"]
-    }
     if(!this.userService.isAdmin()) {
       this.router.navigate(['/login']);
     }
@@ -176,18 +164,11 @@ export class ProductComponent implements OnInit {
   }
   
   loadDropDowns() {
-    this.productService.getProductTypes().subscribe(data => {
-    console.log(data.data);
-    if(data.data != null) {
-     this.product.type = data.data.sort();
-     this.product.metalType = ["Silver", "Alloy", "Afghan alloy", "Antique silver"];
+    this.product = {
+      metalType:["Silver", "Alloy", "Afghan alloy", "Antique silver"],
+      type:["BANGLES", "NECKLACE", "EARRINGS", "RINGS", "OTHERS"]
     }
- },
-error => {
-  console.log(error.status);
-});  
-
-}
+ }
 
 updateProduct() {
 

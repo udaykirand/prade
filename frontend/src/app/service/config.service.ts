@@ -35,6 +35,8 @@ export class ConfigService {
 
   private _contact_url = this._api_url + '/contact';
 
+  private _gallery_url = this._api_url + '/images';
+
   private message:string;
 
   sharingData: myData={message:""};
@@ -81,6 +83,10 @@ export class ConfigService {
 
   get contact_url(): string {
       return this._contact_url;
+  }
+
+  get gallery_url() : string {
+      return this._gallery_url;
   }
 
   saveData(str){

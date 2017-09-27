@@ -1,0 +1,11 @@
+<div layout="row" layout-align="center center" style="flex-wrap:wrap;" layout-wrap>
+<div layout="column" *ngFor="let image of images" style="width:350px;margin-top:15px;border:solid; margin-right:15px;">
+  
+<md-card>
+  <a [href]="image.fileName" data-fancybox="{clickContent : 'false'}" [attr.data-caption]="image.description">
+    <img md-card-image [src]="image.fileName">
+  </a>
+</md-card>
+
+</div>
+</div>

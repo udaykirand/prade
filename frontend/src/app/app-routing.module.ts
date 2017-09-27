@@ -9,6 +9,7 @@ import { SearchComponent } from './search';
 import { LoginGuard } from './guard';
 import { HomepageComponent } from './homepage';
 import { ProductTypeComponent } from './product-type';
+import { GalleryComponent } from './gallery';
 import { NotFoundComponent } from './not-found';
 
 export const routes: Routes = [
@@ -50,6 +51,11 @@ export const routes: Routes = [
   {
     path: 'product/type/:type/metal/:metal',
     component: ProductTypeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'gallery',
+    component: GalleryComponent,
     pathMatch: 'full'
   },
   {

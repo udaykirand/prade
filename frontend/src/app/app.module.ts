@@ -21,12 +21,13 @@ import { LoginComponent } from './login';
 import { ProductComponent } from './product';
 import { SearchComponent } from './search';
 import { MdConfirmDialogModule } from './dialog/md-confirm-dialog.module';
-import { ContactUsDialogModule } from './component/header/contactus-dialog.module';
+import { ContactUsDialogModule } from './component/contactus/contactus-dialog.module';
 import { LoginGuard } from './guard';
 import { NotFoundComponent } from './not-found';
 
 import {
   HeaderComponent,
+  TopnavComponent,
   ApiCardComponent,
   FooterComponent
 } from './component';
@@ -62,7 +63,8 @@ export function initUserFactory(userService: UserService) {
     SignupComponent,
     HomepageComponent,
     ProductTypeComponent,
-    GalleryComponent
+    GalleryComponent,
+    TopnavComponent
   ],
   imports: [
     BrowserModule,

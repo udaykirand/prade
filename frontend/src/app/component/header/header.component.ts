@@ -6,7 +6,6 @@ import {
   ProductService
 } from '../../service';
 import { Router } from '@angular/router';
-import { ContactUsModalService } from './contactus-modal.service';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +19,6 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private config: ConfigService,
     private router: Router,
-    private contactUsModalService: ContactUsModalService,
     private productService: ProductService
   ) { }
 
@@ -54,17 +52,6 @@ export class HeaderComponent implements OnInit {
     } else {
       this.router.navigate(['/login']);
     }
-  }
-
-  openContactUsModal(): void {
-    this.contactUsModalService.showModal({
-      title: 'Thank you for showing intrest!',
-      message: 'Please enter your email address or phone number. We will contact you shortly.',
-      confirmText: 'Hells YEAH!',
-      denyText: 'Hells to the NAH!'
-    }, '600px').subscribe(result => {
-      // Left blank intentionally
-    });
   }
 
   getBangles() {

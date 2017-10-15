@@ -40,10 +40,6 @@
   }
 }
 
-.header {
-  height: 190px;
-}
-
 .prade-logo {
   height:115px;
   background-color:#292c2f ;
@@ -51,7 +47,7 @@
 
 img.app-angular-logo:empty
 {
-	top: 17%;
+	top: 16%;
 	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
@@ -76,7 +72,7 @@ img.app-angular-logo:empty
 }
 }
 
-@media only screen and (min-device-width: 1024px) {
+@media only screen and (device-width: 1024px) {
   img.app-angular-logo:empty {
     top:8%;
 }

@@ -15,6 +15,11 @@
 }
 }
 
+.carousel-wrapper {
+  margin-right: 125px;
+}
+
+
 [layout] {
   box-sizing: border-box;
   display: -webkit-flex;

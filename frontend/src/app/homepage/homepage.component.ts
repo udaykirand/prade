@@ -28,7 +28,6 @@ export class HomepageComponent implements OnInit {
     this.slides.push({
       image: `assets/image/${ this.slides.length % 8 + 1 }.jpg`
     });
-    console.log(this.slides);
   }
 
   ngOnInit() {

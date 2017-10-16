@@ -22,6 +22,12 @@
 }
 }
 
+@media screen and (min-width: 1024px) {
+  .carousel-wrapper {
+   margin-right: 140px;
+ }
+  }
+
 [layout] {
   box-sizing: border-box;
   display: -webkit-flex;

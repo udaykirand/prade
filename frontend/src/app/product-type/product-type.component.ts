@@ -39,7 +39,7 @@ export class ProductTypeComponent implements OnInit {
 
    public addSlide(): void {
     this.slides.push({
-      image: `assets/image/1.jpg`
+      image: `assets/image/${ this.slides.length % 8 + 1 }.jpg`
     });
   }
 

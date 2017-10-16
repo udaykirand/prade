@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Inject, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ProductService } from "app/service";
 import { ConfirmDialogService } from '../dialog/confirm-dialog.service';
 
@@ -8,7 +8,7 @@ declare var $:any;
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit, AfterViewInit {
+export class HomepageComponent implements OnInit {
   products: any;
   public myInterval: number = 4500;
   public slides: any[] = [];
@@ -35,21 +35,6 @@ export class HomepageComponent implements OnInit, AfterViewInit {
       this.products = data.data;
     });   
   }
-
-  ngAfterViewInit() {
-      $(document).ready(function(){ //Photos Gallery
-           $("[data-fancybox]").fancybox({
-              toolbar         : true,
-              buttons         : [
-                                  'fullScreen',
-                                  'close'
-                                ],
-              animationEffect : true,
-              arrows          : false,
-              clickContent    : false
-            });
-       });
-    }
 
   productDetails(id) {
     console.log(id);

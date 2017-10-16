@@ -1,7 +1,7 @@
 <div class="carousel-wrapper">
   <carousel [interval]="myInterval" [noWrap]="noWrapSlides" [(activeSlide)]="activeSlideIndex">
   <slide *ngFor="let slide of slides; let index=index">
-    <img [src]="slide.image">
+    <img [src]="slide.image" class="img-responsive">
   </slide>
 </carousel>
 </div>

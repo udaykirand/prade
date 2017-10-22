@@ -1,3 +1,7 @@
+img {
+  margin-bottom: -25px;
+}
+
 [layout] {
   box-sizing: border-box;
   display: -webkit-flex;

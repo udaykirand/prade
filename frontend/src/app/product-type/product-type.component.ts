@@ -53,8 +53,7 @@ export class ProductTypeComponent implements OnInit {
       this.productService.getProductByType(this.type, this.metal).subscribe(data => {
       this.products = data.data;
       if(this.products.length == 0) {
-        console.log("Setting message");
-        this.message = "No products found";
+        this.message = "We are coming soon with exciting designs. Please feel free to check out other designs.";
       }
     });
     

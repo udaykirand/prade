@@ -45,13 +45,14 @@ export class HomepageComponent implements OnInit {
     });   
   }
 
-  openGetQuoteModal(productId): void {
+  openGetQuoteModal(productId, productName): void {
     this.ConfirmDialogService.showModal({
       title: 'Thank you for showing intrest!',
       message: 'Please enter your email address or phone number. We will contact you shortly.',
       confirmText: 'Hells YEAH!',
       denyText: 'Hells to the NAH!',
-      productId: productId
+      productId: productId,
+      productName: productName
     }, '450px').subscribe(result => {
       // Left blank
     });

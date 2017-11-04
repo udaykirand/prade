@@ -26,12 +26,13 @@ export class ConfirmDialogComponent implements OnInit {
       this.textOptions = this.data.textOptions;
       this.form = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(64)])],
-      productId: ['']
+      productId: [''],
+      productName: ['']
       });
     }
 
     submit() {
-      const body = `{"contact":"${this.form.value.email}", "productId":"${this.textOptions.productId}"}`;
+      const body = `{"contact":"${this.form.value.email}", "productId":"${this.textOptions.productId}", "productName":"${this.textOptions.productName}"}`;
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       this.apiService.post(this.config.contact_url, body, headers)
@@ -52,5 +53,6 @@ export class ConfirmDialogComponent implements OnInit {
     confirmText: string;
     denyText: string;
     productId: string;
+    productName: string;
   }
   

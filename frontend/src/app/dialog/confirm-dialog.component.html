@@ -8,6 +8,7 @@
   <input type="hidden" formControlName="productId" value={{textOptions.productId}}/>
   <input type="hidden" formControlName="productName" value={{textOptions.productName}}/>
 </form>
+<p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
 <md-dialog-actions>
   <button type="button" (click)="submit()" md-raised-button color="primary">Contact me</button>
   <button type="button" (click)="closeModal()" md-raised-button color="primary">No, thanks</button>

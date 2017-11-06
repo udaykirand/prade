@@ -32,16 +32,22 @@ export class ConfirmDialogComponent implements OnInit {
     }
 
     submit() {
-      const body = `{"contact":"${this.form.value.email}", "productId":"${this.textOptions.productId}", "productName":"${this.textOptions.productName}"}`;
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      this.apiService.post(this.config.contact_url, body, headers)
-      .subscribe(data => {
-        // Display toast
-      });
-      this.dialogRef.close();
+      if(this.form.value.email != null && this.form.value.email != "") {
+        const body = `{"contact":"${this.form.value.email}", "productId":"${this.textOptions.productId}", "productName":"${this.textOptions.productName}"}`;
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.apiService.post(this.config.contact_url, body, headers)
+        .subscribe(data => {
+          this.dialogRef.close();
+        },
+      error => {
+        this.errorDiagnostic = "Please enter your email address or phone number";
+      }); 
+      } else {
+        this.errorDiagnostic = "Please enter your email address or phone number";
+      }
     }
-
+ 
     closeModal() {
       this.dialogRef.close();
     }

@@ -41,7 +41,7 @@ export class ConfirmDialogComponent implements OnInit {
           this.dialogRef.close();
         },
       error => {
-        this.errorDiagnostic = "Please enter your email address or phone number";
+        this.errorDiagnostic = "Something went wrong. Please contact us at support@prade.in.";
       }); 
       } else {
         this.errorDiagnostic = "Please enter your email address or phone number";

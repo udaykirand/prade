@@ -1,0 +1,12 @@
+
+    <body style="background: #131623;color: aliceblue;font-family: Roboto,"Helvetica Neue",sans-serif;">
+       <div class="emailBody">
+        <div class="logo" style="text-align: center;"><img style="max-width: 200px;" src="http://prade.co.in/assets/image/imageedit_2_3864744953.png" alt=""/></div>
+        <div class="message" style="margin-left: 100px;">
+            <p>Thank you for your interest in Prade.</p>
+            <p>We will contact you shortly about the product ##productName##.</p>
+            <p>Please visit <a href="http://prade.in">http://prade.in</a> for more exciting designs.</p>
+            <p>Prade</p>
+        </div>
+        </div>
+    </body>

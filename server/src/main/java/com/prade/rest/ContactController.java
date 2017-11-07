@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import java.io.IOException;
+
 import com.prade.model.QuoteRequest;
 import com.prade.model.Result;
 import com.prade.service.ContactService;
@@ -19,7 +21,7 @@ public class ContactController {
 	ContactService contactService;
 	
 	@RequestMapping( method = POST)
-	public Result quoteRequest(@RequestBody QuoteRequest quoteRequest) {
+	public Result quoteRequest(@RequestBody QuoteRequest quoteRequest) throws IOException {
 		System.out.println(quoteRequest.getContact());
 		contactService.quoteRequest(quoteRequest);
 		return new Result("SUCCESS", null, true);

@@ -6,4 +6,6 @@ public interface EmailService {
 	
 	void sendEmail(EmailMessage emailMessage);
 
+	void sendUserEmail(EmailMessage emailMessage);
+
 }
